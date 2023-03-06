@@ -1,10 +1,11 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import { HomePage } from "../pages/HomePage";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route>
-            <p>Hola chikorita!!</p>
-        </Route>
+        <Route path={"/"} element={<HomePage/>} />
+            
+       
     )
 )
 
