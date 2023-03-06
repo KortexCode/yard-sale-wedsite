@@ -1,0 +1,18 @@
+{
+  "name": "yard-sale-website",
+  "version": "1.0.0",
+  "description": "Web site construido con React el cual emula una tienda online para la venta de productos de hogar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2"
+  },
+  "homepage": "https://github.com/KortexCode/yard-sale-website"
+}
