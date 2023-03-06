@@ -2,7 +2,8 @@ const path = require("path"); //nos permite saber donde está ubicado este proye
 //Si está en un servidor o computadora local
 //PLUGINS
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
     entry: "./src/index.jsx", //punto de entrada del proyecto
     output: { //punto de salida del proyecto optimizado y terminado
@@ -30,10 +31,9 @@ module.exports = {
                 }
             },
             {
-                test:/\.s[ac]ss$/i,
-                use: {
-                    loader: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader"], 
-                }
+                test:/\.(css|scss)$/,
+                use: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader"], 
+                
             }
         ]
     },

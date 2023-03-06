@@ -3,7 +3,7 @@ import React from "react";
 function HomePage(){
 
     return(
-        <p>Hola chikorita!!</p>
+        <h2>Chiko!!!</h2>
     )
 }
 
