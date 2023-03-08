@@ -1,8 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "../styles/EmailSend.scss";
 
 function EmailSend(){
+  
+    const navigate = useNavigate();
+    const handleLogin = ()=>{
+      navigate("/");
+    }
 
     return (
         <div className="login">
@@ -16,11 +21,11 @@ function EmailSend(){
                 <img src="./icons/email.svg" alt="email"/>
               </div>
         
-              <button className="primary-button login-button">Login</button>
+              <button className="primary-button login-button" onClick={handleLogin}>Login</button>
         
               <p className="resend">
                 <span>Didn't receive the email?</span>
-                <Link to="/">Resend</Link>
+                <Link to="/login">Resend</Link>
               </p>
             </div>
         </div>

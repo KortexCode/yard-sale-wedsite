@@ -1,10 +1,7 @@
 @import"./vars";
 
 .logo {
-    width: 150px;
-    margin-bottom: 48px;
-    justify-self: center;
-    display: none;
+    @include logo-login;
 }
 .title {
   font-size: $lg;
@@ -43,15 +40,7 @@
   text-decoration: none;
 }
 .primary-button {
-  background-color: $hospital-green;
-  border-radius: 8px;
-  border: none;
-  color: $white;
-  width: 100%;
-  cursor: pointer;
-  font-size: $md;
-  font-weight: bold;
-  height: 50px;
+  @include button-primary-login;
 }
 .login-button {
   margin-top: 14px;

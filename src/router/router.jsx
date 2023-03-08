@@ -5,6 +5,7 @@ import { Layout } from "../layout/LayoutPublic";
 import { HomePage } from "../pages/HomePage";
 import { LogIn } from "../components/LogIn";
 import { SignUp } from "../components/SignUp";
+import { CreateNewPassword } from "../components/CreateNewPassword";
 import { EmailSend } from "../components/EmailSend";
 
 const router = createHashRouter(
@@ -14,7 +15,8 @@ const router = createHashRouter(
             <Route path="/login" element={<LoginPage/>}>
                 <Route index={true} path="/login" element={<LogIn/>}/>
                 <Route path="/login/sign-up" element={<SignUp/>}/>
-                {/* <Route  path="/login/email-send" element={<EmailSend/>}/> */}
+                <Route path="/login/create-new-password" element={<CreateNewPassword/>}/>
+                <Route  path="/login/email-send" element={<EmailSend/>}/>
             </Route>
         </Route>
     )

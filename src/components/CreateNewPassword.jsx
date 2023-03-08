@@ -1,7 +1,13 @@
 import React from 'react';
-import "../styles/CreateMewPassword.scss";
+import { useNavigate } from 'react-router-dom';
+import "../styles/CreateNewPassword.scss";
 
-function CreateMewPassword(){
+function CreateNewPassword(){
+  const navigate = useNavigate();
+
+    const handleConfirm = ()=>{
+      navigate("/login/email-send");
+    }
 
     return(
         <div className="form-container">
@@ -17,10 +23,10 @@ function CreateMewPassword(){
             <label htmlFor="new-password" className="label">Password</label>
             <input type="password" id="new-password" placeholder="*********" className="input       input-password"/>
 
-            <input type="submit" value="Confirm" className="primary-button login-button"/>
+            <input className="primary-button login-button" type="submit" value="Confirm" onClick={handleConfirm}/>
           </form>
         </div>
     )
 }
 
-export {CreateMewPassword}
+export {CreateNewPassword}

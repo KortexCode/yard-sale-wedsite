@@ -1,10 +1,7 @@
 @import"./vars";
 
 .logo {
-    width: 150px;
-    margin-bottom: 48px;
-    justify-self: center;
-    display: none;
+  @include logo-login;
 }
 .title {
   font-size: $lg;
@@ -25,13 +22,7 @@
   margin-bottom: 4px;
 }
 .input {
-  background-color: $text-input-field;
-  border: none;
-  border-radius: 8px;
-  height: 30px;
-  font-size: $md;
-  padding: 6px;
-  margin-bottom: 12px;
+  @include input-login;
 }
 .input-name,
 .input-email,

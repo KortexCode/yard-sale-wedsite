@@ -7,3 +7,41 @@ $hospital-green:orange;
 $sm:14px;
 $md:16px;
 $lg:18px;
+
+@mixin logo-login{
+    width: 150px;
+    margin-bottom: 48px;
+    justify-self: center;
+    display: none;
+}
+@mixin input-login{
+    background-color: $text-input-field;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: $md;
+    padding: 6px;
+    margin-bottom: 12px;
+}
+@mixin button-primary-login{
+    background-color: $hospital-green;
+    border-radius: 8px;
+    border: none;
+    color: $white;
+    width: 100%;
+    cursor: pointer;
+    font-size: $md;
+    font-weight: bold;
+    height: 50px;
+}
+@mixin button-secondary-login{
+    background-color: $white;
+    border-radius: 8px;
+    border: 1px solid $hospital-green;
+    color: $hospital-green;
+    width: 100%;
+    cursor: pointer;
+    font-size: $md;
+    font-weight: bold;
+    height: 50px;
+}
