@@ -9,11 +9,19 @@ module.exports = {
     output: { //punto de salida del proyecto optimizado y terminado
         path: path.resolve(__dirname, "dist"),
         filename:"[name].[contenthash].js", //nombre del archivo optimizado(el index.js)
+        publicPath:"/",
     },
     mode:"development",
     devtool:"source-map",
     resolve: {//Con que extensiones va a trabajar webpack
         extensions:[".js", ".jsx"],
+        alias: {
+            "@pages": path.resolve(__dirname, "src/pages"),
+            "@routes": path.resolve(__dirname, "src/routes"),
+            "@components": path.resolve(__dirname, "src/components"),
+            "@styles": path.resolve(__dirname, "src/styles"),
+            "@assets": path.resolve(__dirname, "src/assets/images"),
+        }
     },
     module: {
         rules: [
