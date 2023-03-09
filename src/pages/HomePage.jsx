@@ -1,12 +1,15 @@
 import React from "react";
-import { Menu } from "../components/Menu";
-import "../styles/HomePage.scss";
+import { Menu } from "@components/Menu";
+import "@styles/HomePage.scss";
+import { useOutletContext } from "react-router-dom";
 
 function HomePage(){
 
+    const {username} = useOutletContext();
+  
     return(
         <>
-            <Menu/>
+            <Menu username={username} />
             <section className="main-container">
                 <div className="cards-container">
                   <div className="product-card">

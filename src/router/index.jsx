@@ -1,17 +1,17 @@
 import React from "react";
 import { createHashRouter, createRoutesFromElements, Route } from "react-router-dom";
-import { LoginPage } from "../pages/LoginPage";
 import { Layout } from "../layout/LayoutPublic";
-import { HomePage } from "../pages/HomePage";
-import { LogIn } from "../routes/LogIn";
-import { SignUp } from "../routes/SignUp";
-import { CreateNewPassword } from "../routes/CreateNewPassword";
-import { EmailSend } from "../routes/EmailSend";
-import { ErroPage } from "../routes/ErrorPage";
+import { HomePage } from "@pages/HomePage";
+import { LoginPage } from "@pages/LoginPage";
+import { ErrorPage } from "@pages/ErrorPage";
+import { LogIn } from "@routes/LogIn";
+import { SignUp } from "@routes/SignUp";
+import { CreateNewPassword } from "@routes/CreateNewPassword";
+import { EmailSend } from "@routes/EmailSend";
 
 const router = createHashRouter(
     createRoutesFromElements(
-        <Route path="/" element={<Layout/>} errorElement={<ErroPage/>} >
+        <Route path="/" element={<Layout/>} errorElement={<ErrorPage/>} >
             <Route index={true} path="/" element={<HomePage/>}/>
             <Route path="/login" element={<LoginPage/>}>
                 <Route index={true} path="/login" element={<LogIn/>}/>

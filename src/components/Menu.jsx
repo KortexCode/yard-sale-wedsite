@@ -1,9 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import "../styles/Menu.scss";
+import { NavLink, useNavigate } from 'react-router-dom';
+import "@styles/Menu.scss";
 
-function Menu(){
+function Menu(props){
+    const navigate = useNavigate();
 
+    const handleLogIn = ()=>{
+      navigate("/login")
+    } 
+ 
     return(
         <header>
             <nav>
@@ -35,8 +40,8 @@ function Menu(){
                 </div>
 
                 <div className="navbar-right">
-                  <ul>
-                    <li className="navbar-email">platzi@example.com</li>
+                  <ul className='Menu-desktop'>
+                    <li className="navbar-email Menu-login" onClick={handleLogIn}>{props.username || "LogIn"}</li>
                     <li className="navbar-shopping-cart">
                       <img src="./icons/icon_shopping_cart.svg" alt="shopping cart"/>
                       <div>2</div>

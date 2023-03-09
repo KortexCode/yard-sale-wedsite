@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ErroPage(){
+function ErrorPage(){
     return (
         <h2>
             ERROR PAGE Chikorita!!
@@ -8,4 +8,4 @@ function ErroPage(){
     )
 }
 
-export {ErroPage}
+export {ErrorPage}
