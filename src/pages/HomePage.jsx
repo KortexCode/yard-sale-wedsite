@@ -2,7 +2,6 @@ import React from "react";
 import { Menu } from "@components/Menu";
 import "@styles/HomePage.scss";
 import { useOutletContext } from "react-router-dom";
-import { UserDesktopMenu } from "../components/UserDesktopMenu";
 
 function HomePage(){
 

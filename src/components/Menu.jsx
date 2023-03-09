@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserDesktopMenu } from './UserDesktopMenu';
-import {UserMobileMenu} from './UserMobileMenu';
+import { UserMobileMenu  } from './UserMobileMenu';
 import "@styles/Menu.scss";
 
 function Menu(props){
@@ -20,9 +20,13 @@ function Menu(props){
         navigate("/login")
     }
     const handleOpenMobileMenu = () => {
-      props.setShowMobileMenu(true);
+      if(!props.showMobileMenu){
+        props.setShowMobileMenu(true);
+      }
+      else
+        props.setShowMobileMenu(false);   
     }
-    console.log("abri el menu!!", props.openDesktopMenu)
+    console.log("abri el menu!!", props.openDesktopMenu);
     //Cierre de Menu de usuario en desktop
  
     return(
@@ -30,10 +34,11 @@ function Menu(props){
             <nav>
                 <img src="./icons/icon_menu.svg" alt="menu" className="menu"
                  onClick={handleOpenMobileMenu}/>
-                {
-                   props.showMobileMenu && <UserMobileMenu username={props.username}
-                   authUser={props.authUser} setShowMobileMenu={props.setShowMobileMenu} />
-                } 
+                
+                <UserMobileMenu username={props.username}
+                authUser={props.authUser} setShowMobileMenu={props.setShowMobileMenu}
+                showMobileMenu={props.showMobileMenu}/>
+                 
                 <div className="navbar-left">
                   <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo"/>
 
@@ -67,7 +72,8 @@ function Menu(props){
                       <div>2</div>
                     </li>
                   </ul>
-                  {props.openDesktopMenu && <UserDesktopMenu authUser={props.authUser} setOpenDesktopMenu={props.setOpenDesktopMenu} />} 
+                  <UserDesktopMenu authUser={props.authUser}
+                   setOpenDesktopMenu={props.setOpenDesktopMenu} openDesktopMenu={props.openDesktopMenu} />
                 </div>
             </nav>
         </header>

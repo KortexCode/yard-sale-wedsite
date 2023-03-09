@@ -38,3 +38,12 @@
   display: inline-block;
 }
 
+.desktop-menu--disable{
+  display: none;
+}
+
+@media (max-width: 640px){
+  .desktop-menu {
+    display: none;
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import "@styles/UserDesktopMenu.scss";
 
@@ -10,7 +10,7 @@ function UserDesktopMenu(props) {
     }
 
     return (
-        <div className="desktop-menu">
+        <div className={`desktop-menu ${!props.openDesktopMenu && "desktop-menu--disable"}`}>
             <ul className='desktop-menu__ul'>
                 <li className='desktop-menu__li'>
                     <Link className='desktop-menu__link' to="/">My orders</Link>
