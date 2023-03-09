@@ -2,14 +2,25 @@ import React from "react";
 import { Menu } from "@components/Menu";
 import "@styles/HomePage.scss";
 import { useOutletContext } from "react-router-dom";
+import { UserDesktopMenu } from "../components/UserDesktopMenu";
 
 function HomePage(){
 
-    const {username} = useOutletContext();
+    const {
+      username,
+      openDesktopMenu,
+      showMobileMenu,
+      setShowMobileMenu,
+      setOpenDesktopMenu,
+      authUser,
+    } = useOutletContext();
   
     return(
         <>
-            <Menu username={username} />
+            <Menu username={username} openDesktopMenu={openDesktopMenu} 
+              setOpenDesktopMenu={setOpenDesktopMenu} showMobileMenu={showMobileMenu}
+              setShowMobileMenu={setShowMobileMenu} authUser={authUser}>
+            </Menu>
             <section className="main-container">
                 <div className="cards-container">
                   <div className="product-card">

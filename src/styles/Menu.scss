@@ -1,10 +1,14 @@
 @import "./vars";
 
 nav {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid $very-light-pink;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 .menu {
   display: none;
@@ -12,8 +16,11 @@ nav {
 .logo {
   width: 100px;
 }
-.navbar-left ul,
-.navbar-right ul {
+.navbar-right{
+  position: relative;
+}
+.navbar-left .Menu-ul,
+.navbar-right .Menu-ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -23,20 +30,21 @@ nav {
 }
 .navbar-left {
   display: flex;
+  position: relative;
 }
 .navbar-left ul {
   margin-left: 12px;
 }
-.navbar-left ul li a,
-.navbar-right ul li a {
+.navbar-left ul .Menu-li .Menu-navLink,
+.navbar-right ul .Menu-li .Menu-navLink {
   text-decoration: none;
   color: $very-light-pink;
   border: 1px solid $white;
   padding: 8px;
   border-radius: 8px;
 }
-.navbar-left ul li a:hover,
-.navbar-right ul li a:hover {
+.navbar-left ul .Menu-li .Menu-navLink:hover,
+.navbar-right ul .Menu-li .Menu-navLink:hover {
   border: 1px solid $hospital-green;
   color: $hospital-green;
 }
@@ -71,7 +79,7 @@ nav {
   .menu {
     display: block;
   }
-  .navbar-left ul {
+  .navbar-left .Menu-ul {
     display: none;
   }
   .navbar-email {
