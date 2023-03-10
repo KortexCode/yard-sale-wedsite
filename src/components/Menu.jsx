@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserDesktopMenu } from './UserDesktopMenu';
 import { UserMobileMenu  } from './UserMobileMenu';
@@ -6,7 +6,7 @@ import "@styles/Menu.scss";
 
 function Menu(props){
     const navigate = useNavigate();
-
+    //MANEJO DE EVENTOS DE CLICK
     const handleLogIn = ()=>{
       if(props.username && !props.openDesktopMenu){
         console.log("abro menu")
@@ -26,9 +26,14 @@ function Menu(props){
       else
         props.setShowMobileMenu(false);   
     }
-    console.log("abri el menu!!", props.openDesktopMenu);
-    //Cierre de Menu de usuario en desktop
- 
+    const handleOpenShoppingCart = () => {
+      console.log("entré al shop")
+      if(!props.openShoppingCart)
+        props.setOpenShoppingCart(true);
+      else
+        props.setOpenShoppingCart(false);;      
+    }
+
     return(
         <header>
             <nav>
@@ -67,10 +72,11 @@ function Menu(props){
                 <div className="navbar-right">
                   <ul className='Menu-desktop Menu-ul'>
                     <li className="navbar-email Menu-login" onClick={handleLogIn}>{props.username || "LogIn"}</li>
-                    <li className="navbar-shopping-cart">
-                      <img src="./icons/icon_shopping_cart.svg" alt="shopping cart"/>
+                    {props.username && <li className="navbar-shopping-cart">
+                      <img src="./icons/icon_shopping_cart.svg" alt="shopping cart" 
+                      onClick={handleOpenShoppingCart}/>
                       <div>2</div>
-                    </li>
+                    </li>}
                   </ul>
                   <UserDesktopMenu authUser={props.authUser}
                    setOpenDesktopMenu={props.setOpenDesktopMenu} openDesktopMenu={props.openDesktopMenu} />

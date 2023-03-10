@@ -3,7 +3,8 @@ import { Menu } from "@components/Menu";
 import "@styles/HomePage.scss";
 import { useLoaderData, useOutletContext, useParams } from "react-router-dom";
 import { ProductCart } from "@components/ProductCart";
-import { ProductDetail } from "../components/ProductDetail";
+import { ProductDetail } from "@components/ProductDetail";
+import { ShoppingCart } from "@components/ShoppingCart";
 
 function HomePage(){
 
@@ -13,10 +14,14 @@ function HomePage(){
       openDesktopMenu,
       showMobileMenu,
       openProductDetail,
+      openShoppingCart,
+      orderList,
       setProductId,
       setShowMobileMenu,
       setOpenDesktopMenu,
       setOpenProductDetail,
+      setOpenShoppingCart,
+      setOrderList,
       authUser,
     } = useOutletContext();
     const dataApi = useLoaderData();
@@ -25,15 +30,19 @@ function HomePage(){
         <>
             <Menu username={username} openDesktopMenu={openDesktopMenu} 
               setOpenDesktopMenu={setOpenDesktopMenu} showMobileMenu={showMobileMenu}
-              setShowMobileMenu={setShowMobileMenu} authUser={authUser}>
+              setShowMobileMenu={setShowMobileMenu} authUser={authUser} 
+              setOpenShoppingCart={setOpenShoppingCart} openShoppingCart={openShoppingCart}>
             </Menu>
             <ProductDetail dataApi={dataApi} openProductDetail={openProductDetail}
              setOpenProductDetail={setOpenProductDetail} productId={productId} />
+            <ShoppingCart dataApi={dataApi} openShoppingCart={openShoppingCart}
+              setOpenShoppingCart={setOpenShoppingCart} setOrderList={setOrderList}
+              orderList={orderList} />
             <section className="main-container">
                 <div className="cards-container">
                   {dataApi.map((product)=> <ProductCart key={product.id} product={product}
                   setOpenProductDetail={setOpenProductDetail} openProductDetail={openProductDetail}
-                  setProductId={setProductId} />)}    
+                  setProductId={setProductId} setOrderList={setOrderList} orderList={orderList} />)}    
                 </div>
             </section>
         </>
