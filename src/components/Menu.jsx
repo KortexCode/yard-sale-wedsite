@@ -47,19 +47,19 @@ function Menu(props){
                       <NavLink className='Menu-navLink' to="/">All</NavLink>
                     </li>
                     <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/">Clothes</NavLink>
+                      <NavLink className='Menu-navLink' to="/categories/1/products">Clothes</NavLink>
                     </li>
                     <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/">Electronics</NavLink>
+                      <NavLink className='Menu-navLink' to="/categories/2/products">Electronics</NavLink>
                     </li>
                     <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/">Furnitures</NavLink>
+                      <NavLink className='Menu-navLink' to="/categories/3/products">Furnitures</NavLink>
                     </li>
                     <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/">Toys</NavLink>
+                      <NavLink className='Menu-navLink' to="/categories/4/products">Toys</NavLink>
                     </li>
                     <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/">Others</NavLink>
+                      <NavLink className='Menu-navLink' to="/categories/5/products">Others</NavLink>
                     </li>
                   </ul>
                 </div>

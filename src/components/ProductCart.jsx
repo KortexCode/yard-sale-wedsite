@@ -1,11 +1,12 @@
 import React from 'react';
 import '@styles/ProductCart.scss';
 
-function ProductCart({product, setOpenProductDetail, openProductDetail}) {
+function ProductCart({product, setOpenProductDetail, openProductDetail, setProductId}) {
 
     const handleOpenDetails = () => { 
         if(!openProductDetail)
             setOpenProductDetail(true);
+            setProductId(product.id);
     }
 
     return (
@@ -13,7 +14,7 @@ function ProductCart({product, setOpenProductDetail, openProductDetail}) {
             <img src={`${product.images[0]}`} alt={`${product.title}`} onClick={handleOpenDetails} />
             <div className="product-info">
                 <div>
-                    <p>{product.price}</p>
+                    <p>${product.price}</p>
                     <p>{product.title}</p>
                 </div>
                 <figure>
