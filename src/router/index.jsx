@@ -8,11 +8,13 @@ import { LogIn } from "@routes/LogIn";
 import { SignUp } from "@routes/SignUp";
 import { CreateNewPassword } from "@routes/CreateNewPassword";
 import { EmailSend } from "@routes/EmailSend";
+import { productsData } from "../pages/HomePage";
+
 
 const router = createHashRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout/>} errorElement={<ErrorPage/>} >
-            <Route index={true} path="/" element={<HomePage/>}/>
+            <Route index={true} path="/" loader={productsData} element={<HomePage/>}/>
             <Route path="/login" element={<LoginPage/>}>
                 <Route index={true} path="/login" element={<LogIn/>}/>
                 <Route path="/login/sign-up" element={<SignUp/>}/>

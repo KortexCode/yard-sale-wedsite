@@ -1,7 +1,9 @@
 import React from "react";
 import { Menu } from "@components/Menu";
 import "@styles/HomePage.scss";
-import { useOutletContext } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
+import { ProductCart } from "@components/ProductCart";
+import { ProductDetail } from "../components/ProductDetail";
 
 function HomePage(){
 
@@ -9,10 +11,13 @@ function HomePage(){
       username,
       openDesktopMenu,
       showMobileMenu,
+      openProductDetail,
       setShowMobileMenu,
       setOpenDesktopMenu,
+      setOpenProductDetail,
       authUser,
     } = useOutletContext();
+    const dataApi = useLoaderData();
   
     return(
         <>
@@ -20,48 +25,22 @@ function HomePage(){
               setOpenDesktopMenu={setOpenDesktopMenu} showMobileMenu={showMobileMenu}
               setShowMobileMenu={setShowMobileMenu} authUser={authUser}>
             </Menu>
+            <ProductDetail openProductDetail={openProductDetail} setOpenProductDetail={setOpenProductDetail}/>
             <section className="main-container">
                 <div className="cards-container">
-                  <div className="product-card">
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
-                    <div className="product-info">
-                      <div>
-                        <p>$120,00</p>
-                        <p>Bike</p>
-                      </div>
-                      <figure>
-                        <img src="./icons/bt_add_to_cart.svg" alt=""/>
-                      </figure>
-                    </div>
-                  </div>
-                  <div className="product-card">
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
-                    <div className="product-info">
-                      <div>
-                        <p>$120,00</p>
-                        <p>Bike</p>
-                      </div>
-                      <figure>
-                        <img src="./icons/bt_add_to_cart.svg" alt=""/>
-                      </figure>
-                    </div>
-                  </div>
-                  <div className="product-card">
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
-                    <div className="product-info">
-                      <div>
-                        <p>$120,00</p>
-                        <p>Bike</p>
-                      </div>
-                      <figure>
-                        <img src="./icons/bt_add_to_cart.svg" alt=""/>
-                      </figure>
-                    </div>
-                  </div>
+                  {dataApi.map((product)=> <ProductCart key={product.id} product={product}
+                  setOpenProductDetail={setOpenProductDetail} openProductDetail={openProductDetail}/>)}    
                 </div>
             </section>
         </>
     )
 }
 
-export {HomePage}
+async function productsData(){
+  const res = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=10");
+  const data = await res.json();
+  return data;
+}
+
+export {HomePage, productsData}
+
