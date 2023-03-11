@@ -41,7 +41,7 @@ function UserMobileMenu(props) {
             </ul>
             {props.username && <ul>
                 <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/">My orders</Link>
+                    <Link className="mobile-menu__link" to="/my-orders" target={"_blank"}>My orders</Link>
                 </li>
                 <li className="mobile-menu__li">
                     <Link className="mobile-menu__link" to="/">My Profile</Link>

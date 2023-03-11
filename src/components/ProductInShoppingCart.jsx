@@ -1,15 +1,15 @@
 import React from 'react'
 
-function ProductInShoppingCart({product, orderList, setOrderList}) {
+function ProductInShoppingCart({product, shoppingList, setShoppingList}) {
 
     const handleDelteProduct = () => {
-        let productList = [...orderList];
+        let productList = [...shoppingList];
         //se busca el indice del producto a eliminar 
         const indexToDeleted = productList.findIndex((article)=>{
             return article.id === product.id;
         })
         productList.splice(indexToDeleted, 1);
-        setOrderList(productList);
+        setShoppingList(productList);
     }
 
     return (

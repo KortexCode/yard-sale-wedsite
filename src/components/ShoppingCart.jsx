@@ -3,33 +3,50 @@ import "@styles/ShoppingCart.scss";
 import { ProductInShoppingCart } from './ProductInShoppingCart';
 
 function ShoppingCart(props) {
-    let price = 0;
-    let result = 0;
+    let totalPrice = 0;
+    let articles= 0;
     //Se calcula el valor total de los productos en el carrito
-    for (const product of props.orderList) {
-         price = product.price;
-         result += price;
+    for (const product of props.shoppingList) {
+        let price = product.price;
+        articles++;
+        totalPrice += price;
+    }
+    //EVENTOS DE CLICK
+    const handleCloseMenu = () => {
+        props.setOpenShoppingCart((prevstate) => !prevstate);
+    }
+    //Agrega las ordenes a la sección de My-Orders
+    const handleAddtoOrders = () => {
+        let saveOrderList = []; 
+        saveOrderList.push({
+            total,
+            articles,
+            shoppingList:[...props.shoppingList],
+
+        })
+        console.log("puechados", saveOrderList)
+        props.setOrderList(saveOrderList)
     }
 
     return (
         <aside className={`product-detail ${!props.openShoppingCart && "product-detail--disable"}`}>
             <div className="title-container">
-                <img src="./icons/flechita.svg" alt="arrow"/>
+                <img src="./icons/flechita.svg" alt="arrow" onClick={handleCloseMenu}/>
                 <p className="title">My order</p>
             </div>
 
             <div className="my-order-content">
-                {props.orderList.map((product)=><ProductInShoppingCart product={product} 
-                orderList={props.orderList} setOrderList={props.setOrderList} key={product.id} />)}
+                {props.shoppingList.map((product)=><ProductInShoppingCart product={product} 
+                shoppingList={props.shoppingList} setShoppingList={props.setShoppingList} key={product.id} />)}
             
                 <div className="order">
                     <p>
                         <span>Total</span>
                     </p>
-                    <p>${result}</p>
+                    <p>${totalPrice}</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-button" onClick={handleAddtoOrders}>
                     Checkout
                 </button>
             </div>

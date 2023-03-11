@@ -5,9 +5,9 @@ function ProductCart({
         product, 
         setOpenProductDetail,
         openProductDetail, 
-        orderList,
+        shoppingList,
         setProductId,
-        setOrderList,
+        setshoppingList,
 
     }) {
     //EVENTOS DE CLICK
@@ -19,9 +19,9 @@ function ProductCart({
     }
     //Agregar al carrito de compras
     const handleAddToShoppingCart = () => { 
-        let productList = [...orderList];
+        let productList = [...shoppingList];
         productList.push(product);
-        setOrderList(productList)
+        setshoppingList(productList)
     }
 
     return (

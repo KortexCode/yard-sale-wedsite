@@ -15,15 +15,18 @@ function HomePage(){
       showMobileMenu,
       openProductDetail,
       openShoppingCart,
+      shoppingList,
       orderList,
       setProductId,
       setShowMobileMenu,
       setOpenDesktopMenu,
       setOpenProductDetail,
       setOpenShoppingCart,
+      setShoppingList,
       setOrderList,
       authUser,
     } = useOutletContext();
+    
     const dataApi = useLoaderData();
   
     return(
@@ -36,13 +39,13 @@ function HomePage(){
             <ProductDetail dataApi={dataApi} openProductDetail={openProductDetail}
              setOpenProductDetail={setOpenProductDetail} productId={productId} />
             <ShoppingCart dataApi={dataApi} openShoppingCart={openShoppingCart}
-              setOpenShoppingCart={setOpenShoppingCart} setOrderList={setOrderList}
-              orderList={orderList} />
+              setOpenShoppingCart={setOpenShoppingCart} setShoppingList={setShoppingList}
+              shoppingList={shoppingList} setOrderList={setOrderList} orderList={orderList} />
             <section className="main-container">
                 <div className="cards-container">
                   {dataApi.map((product)=> <ProductCart key={product.id} product={product}
                   setOpenProductDetail={setOpenProductDetail} openProductDetail={openProductDetail}
-                  setProductId={setProductId} setOrderList={setOrderList} orderList={orderList} />)}    
+                  setProductId={setProductId} setshoppingList={setShoppingList} shoppingList={shoppingList} />)}    
                 </div>
             </section>
         </>

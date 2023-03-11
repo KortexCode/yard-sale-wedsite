@@ -9,7 +9,7 @@ import { SignUp } from "@routes/SignUp";
 import { CreateNewPassword } from "@routes/CreateNewPassword";
 import { EmailSend } from "@routes/EmailSend";
 import { productsData } from "../pages/HomePage";
-
+import { MyOrders } from "@routes/MyOrders";
 
 const router = createHashRouter(
     createRoutesFromElements(
@@ -22,6 +22,7 @@ const router = createHashRouter(
                 <Route path="/login/create-new-password" element={<CreateNewPassword/>}/>
                 <Route  path="/login/email-send" element={<EmailSend/>}/>
             </Route>
+            <Route path="/my-orders" element={<MyOrders/>}/>
         </Route>
     )
 )
