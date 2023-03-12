@@ -17,17 +17,20 @@ function ShoppingCart(props) {
     }
     //Agrega las ordenes a la sección de My-Orders
     const handleAddtoOrders = () => {
-        let saveOrderList = []; 
+        let saveOrderList = [...props.orderList]; 
+    
         saveOrderList.push({
-            total,
+            id: Date.now().toString(16),
+            totalPrice,
             articles,
             shoppingList:[...props.shoppingList],
+            date: new Date().toLocaleDateString(),
 
         })
-        console.log("puechados", saveOrderList)
-        props.setOrderList(saveOrderList)
+        props.setOrderList(saveOrderList);
+        
     }
-
+    console.log("lista", props.orderList)
     return (
         <aside className={`product-detail ${!props.openShoppingCart && "product-detail--disable"}`}>
             <div className="title-container">

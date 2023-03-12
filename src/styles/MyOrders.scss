@@ -5,6 +5,7 @@
     height: 100vh;
     display: grid;
     justify-content: center;
+    position: relative;
 }
 .title {
     font-size: $lg;

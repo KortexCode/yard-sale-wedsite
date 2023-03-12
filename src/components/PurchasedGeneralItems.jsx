@@ -1,21 +1,21 @@
 import React from 'react';
 import "@styles/PurchasedGeneralItems.scss";
-import { useNavigate } from 'react-router-dom';
 
-function PurchasedGeneralItems() {
-    const navigate = useNavigate();
-
+function PurchasedGeneralItems({order, setOpenOrderMenu, setOrderListId}) {
+  
     const handleOpenOrder= () => { 
+        setOpenOrderMenu(true);
+        setOrderListId(order.id);
         
     }
 
     return (
         <div className="order-general">
             <p>
-                <span>03.25.21</span>
-                <span>6 articles</span>
+                <span>{order.date}</span>
+                <span>{`${order.articles} articles`}</span>
             </p>
-            <p>$560.00</p>
+            <p>{`$${order.totalPrice}`}</p>
             <img src="./icons/flechita.svg" alt="arrow" onClick={handleOpenOrder}/>
         </div>
     )

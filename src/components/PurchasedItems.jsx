@@ -1,17 +1,32 @@
 import React from 'react'
 import "@styles/PurchasedItems.scss";
 
-function PurchasedItems() {
+function PurchasedItems(props) {
 
-    return (
-        <div className="shopping-cart">
-            <figure>
-                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike"/>
-            </figure>
-            <p>Bike</p>
-            <p>$30,00</p>
-        </div>
-    )
+    console.log("id", props.orderListId);
+    //Se busca la orden por su id
+    const order = props.orderList.find((productList)=>{
+        return props.orderListId === productList.id;
+    })
+    console.log("purchased encontrado", order)
+    //Se obtiene la lista de productos de la orden
+    const productList = [...order.shoppingList];
+    console.log("productos a rende", productList)
+
+   return (
+        <>
+            {productList.map((product)=>(
+                <div className="shopping-cart" key={product.id}>
+                    <figure>
+                        <img src={product.images[0]} alt={product.title}/>
+                    </figure>
+                    <p>{product.title}</p>
+                    <p>${product.price}</p>
+                </div>      
+            ))}
+        </>   
+   )
+ 
 }
 
 export { PurchasedItems }

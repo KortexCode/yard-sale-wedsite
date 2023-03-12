@@ -3,8 +3,14 @@
 .my-order {
   width: 100%;
   height: 100vh;
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px rgb(80, 79, 79);
   display: grid;
   justify-content: center;
+  position: absolute;
+  top:0;
+  background-color: $white;
+  z-index: 2;
 }
 .title {
   font-size: $lg;
@@ -12,7 +18,7 @@
 }
 .my-order-container {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
   width: 300px;
 }
 .my-order-content {
