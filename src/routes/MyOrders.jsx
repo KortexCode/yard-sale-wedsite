@@ -19,8 +19,9 @@ function MyOrders() {
 
     return (
         <div className="my-order">
-           {openOrderMenu && <MyOrder orderList={orderList} orderListId={orderListId}>
-                <PurchasedItems orderList={orderList} orderListId={orderListId}/>
+           {openOrderMenu && <MyOrder orderList={orderList} orderListId={orderListId}
+            setOpenOrderMenu={setOpenOrderMenu}>
+                <PurchasedItems orderList={orderList} orderListId={orderListId} />
             </MyOrder>}
             <div className="my-order-container">
                 <h1 className="title">My orders</h1>

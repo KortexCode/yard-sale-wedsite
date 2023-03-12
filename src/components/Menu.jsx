@@ -72,11 +72,11 @@ function Menu(props){
                 <div className="navbar-right">
                   <ul className='Menu-desktop Menu-ul'>
                     <li className="navbar-email Menu-login" onClick={handleLogIn}>{props.username || "LogIn"}</li>
-                    {props.username && <li className="navbar-shopping-cart">
+                    <li className="navbar-shopping-cart">
                       <img src="./icons/icon_shopping_cart.svg" alt="shopping cart" 
                       onClick={handleOpenShoppingCart}/>
-                      <div>2</div>
-                    </li>}
+                      <div>{props.shoppingList.length}</div>
+                    </li>
                   </ul>
                   <UserDesktopMenu authUser={props.authUser}
                    setOpenDesktopMenu={props.setOpenDesktopMenu} openDesktopMenu={props.openDesktopMenu} />

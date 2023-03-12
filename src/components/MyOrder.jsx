@@ -1,15 +1,22 @@
 import React from 'react';
 import "@styles/MyOrder.scss";
 
-function MyOrder({children, orderList, orderListId}) {
+function MyOrder({children, orderList, orderListId, setOpenOrderMenu}) {
     //Se busca la orden por su id
     const order = orderList.find((productList)=>{
         return orderListId === productList.id;
     })
+    const handleCloseAside = ()=>{
+        setOpenOrderMenu(prevState => !prevState)
+    }
     return (
         <div className="my-order">
             <div className="my-order-container">
-                <h1 className="title">My order</h1>
+                <div className="my-order__close">
+                    <img src="./icons/icon_close.png" alt="close" onClick={handleCloseAside}/>
+                    <h1 className="title">My order</h1>
+                </div>
+                
                 <div class="order">
                     <p>
                       <span>{order.date}</span>

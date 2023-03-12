@@ -1,8 +1,10 @@
 import React from 'react'
 import "@styles/ShoppingCart.scss";
 import { ProductInShoppingCart } from './ProductInShoppingCart';
+import { useNavigate } from 'react-router-dom';
 
 function ShoppingCart(props) {
+    const navigate = useNavigate();
     let totalPrice = 0;
     let articles= 0;
     //Se calcula el valor total de los productos en el carrito
@@ -17,18 +19,21 @@ function ShoppingCart(props) {
     }
     //Agrega las ordenes a la sección de My-Orders
     const handleAddtoOrders = () => {
-        let saveOrderList = [...props.orderList]; 
-    
-        saveOrderList.push({
-            id: Date.now().toString(16),
-            totalPrice,
-            articles,
-            shoppingList:[...props.shoppingList],
-            date: new Date().toLocaleDateString(),
+        if(!props.username){
+            navigate("/login");
+        }
+        else{
+            let saveOrderList = [...props.orderList]; 
+            saveOrderList.push({
+                id: Date.now().toString(16),
+                totalPrice,
+                articles,
+                shoppingList:[...props.shoppingList],
+                date: new Date().toLocaleDateString(),
 
-        })
-        props.setOrderList(saveOrderList);
-        
+            })
+            props.setOrderList(saveOrderList);
+        }    
     }
     console.log("lista", props.orderList)
     return (
