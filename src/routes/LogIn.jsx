@@ -16,7 +16,7 @@ function LogIn(){
         
     }
     const handleSignUp = ()=>{
-        navigate("/login/sign-up");
+        navigate("/sign-up");
     }
     const handleInsertUsername = (event)=>{
         setText(event.target.value);

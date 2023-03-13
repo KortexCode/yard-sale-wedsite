@@ -27,7 +27,7 @@ function UserMobileMenu(props) {
                     <Link className="mobile-menu__link" to="/">Furnitures</Link>
                 </li>
                 <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/">Toys</Link>
+                    <Link className="mobile-menu__link" to="/">Shoes</Link>
                 </li>
                 <li className="mobile-menu__li">
                     <Link className="mobile-menu__link" to="/">Other</Link>

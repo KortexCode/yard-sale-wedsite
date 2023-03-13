@@ -16,12 +16,12 @@ const router = createHashRouter(
         <Route path="/" element={<Layout/>} errorElement={<ErrorPage/>} >
             <Route index={true} path="/" loader={productsData} element={<HomePage/>}/>
             <Route path="/categories/:id/products" loader={productsData} element={<HomePage/>}/>
-            <Route path="/login" element={<LoginPage/>}>
-                <Route index={true} path="/login" element={<LogIn/>}/>
-                <Route path="/login/sign-up" element={<SignUp/>}/>
-                <Route path="/login/create-new-password" element={<CreateNewPassword/>}/>
-                <Route  path="/login/email-send" element={<EmailSend/>}/>
+            <Route path="/log-in" element={<LoginPage/>}>
+                <Route index={true} path="/log-in" element={<LogIn/>}/>        
+                <Route path="/log-in/create-new-password" element={<CreateNewPassword/>}/>
+                <Route  path="/log-in/email-send" element={<EmailSend/>}/>
             </Route>
+            <Route path="/sign-up" element={<SignUp/>}/>
             <Route path="/my-orders" element={<MyOrders/>}/>
         </Route>
     )

@@ -9,15 +9,13 @@ function Menu(props){
     //MANEJO DE EVENTOS DE CLICK
     const handleLogIn = ()=>{
       if(props.username && !props.openDesktopMenu){
-        console.log("abro menu")
         props.setOpenDesktopMenu(true);
       }
       else if(props.username && props.openDesktopMenu){
-        console.log("cierro menu")
         props.setOpenDesktopMenu(false);
       }
       else
-        navigate("/login")
+        navigate("/log-in")
     }
     const handleOpenMobileMenu = () => {
       if(!props.showMobileMenu){
@@ -27,7 +25,6 @@ function Menu(props){
         props.setShowMobileMenu(false);   
     }
     const handleOpenShoppingCart = () => {
-      console.log("entré al shop")
       if(!props.openShoppingCart)
         props.setOpenShoppingCart(true);
       else
