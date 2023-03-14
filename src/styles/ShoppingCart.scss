@@ -18,6 +18,34 @@
   font-size: $lg;
   font-weight: bold;
 }
+.shopping-cart-container{
+  height: auto;
+  padding: 10px 10px 10px 0;
+  margin-bottom: 10px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+/* width */
+.shopping-cart-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.shopping-cart-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.shopping-cart-container::-webkit-scrollbar-thumb {
+  background: $hospital-green; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.shopping-cart-container::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
 .order {
   display: grid;
   grid-template-columns: auto 1fr;

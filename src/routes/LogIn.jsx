@@ -5,7 +5,7 @@ import "../styles/LogIn.scss";
 function LogIn(){
 
     const [text, setText] = React.useState("");
-    const {authUser} = useOutletContext()
+    const {authUser, userData} = useOutletContext()
     
     const navigate = useNavigate()
 

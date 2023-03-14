@@ -4,34 +4,33 @@ import "@styles/SignUp.scss";
 
 function SignUp() {
     const {authUser, userData, userSignUp} = useOutletContext();
-    const [register, setRegister] = React.useState({
+    //ESTADOS
+    const [register, setRegister] = React.useState({//datos del usuario a registrar
         name: "",
         email: "",
         password: "",
         ordersList: [],
     });
-    const [validation, setValidation] = React.useState({
+    const [validation, setValidation] = React.useState({//Para validar username e email existentes
         validName: true,
         validEmail: true,
     });
-    const [empty, setEmpty] = React.useState(false)
+    const [empty, setEmpty] = React.useState(false); //Para valida campos vacíos
 
     const navigate = useNavigate();
+    //Evento de creación de cuenta
+    const handleCreate = () => { 
+        const emptyState = register.name.length == 0 ? true : register.email.length == 0 ? true 
+        : register.password.length == 0 ? true : false;
 
-    const handleCreate = () => {
-        
-        if(!register.name.length) 
-            setEmpty(true);
-        else if(!register.email.length)
-            setEmpty(true);
-        else if(!register.password.length)
-            setEmpty(true);
-        
+        if(emptyState){
+            setEmpty(emptyState);
+        }
         else if(validation.validName && validation.validEmail){
             console.log("registrado")
             userSignUp(register);
             authUser(register.name);
-            setEmpty(false)
+            setEmpty(emptyState);
             navigate("/");
         }
         else{
@@ -39,42 +38,33 @@ function SignUp() {
         }
     }
 
-    //Eventos de cabios en los input
+    //Eventos de cambios en los input
     const handleTextName = ({target}) => { 
         const text = (target.value).toLowerCase();
         //Guardando datos de registro
         setRegister({...register, ...{name: text }});
         //Validando que los datos ingresados sean o no existentes
-        const validationError = data_validation(text );
-        console.log("validation error", validationError)
-        //El objeto validation servirá para saber si se debe hacer el registro o no
-        if(validationError){
-            setValidation({...validation, ...{validName: false}})
-        }else{
-            setValidation({...validation, ...{validName: true}})
-        }
+        data_validation(text );
     }
     const handleTextEmail = ({target}) => { 
         const text = (target.value).toLowerCase();
         setRegister({...register, ...{email: text}});
-
-        const validationError = data_validation(text);
+        data_validation(text);  
+    }
+    const handleTextPassword = ({target}) => { 
+        setRegister({...register, ...{password: target.value}});
+    }
+    //Validar datos de registro con los datos de registros previos almacenados. 
+    const data_validation = (value) => { 
+        //El estado "validation" servirá para saber si se debe hacer el registro o no
+        const validationError = userData.some((user)=>{
+            return user.name === value || user.email === value ?  true : false;  
+        })
         if(validationError){
             setValidation({...validation, ...{validEmail: false}})
         }else{
             setValidation({...validation, ...{validEmail: true}})
         }
-    }
-    const handleTextPassword = ({target}) => { 
-        setRegister({...register, ...{password: target.value}});
-    }
-
-    //Validar datos de registro con los datos almacenados de registros previos.
-    const data_validation = (value) => { 
-        const validation= userData.some((user)=>{
-            return user.name === value || user.email === value ?  true : false;  
-        })
-        return validation;
     }
 
     console.log("REGISTRO ACTUAL", register);

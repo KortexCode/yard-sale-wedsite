@@ -44,8 +44,10 @@ function ShoppingCart(props) {
             </div>
 
             <div className="my-order-content">
-                {props.shoppingList.map((product)=><ProductInShoppingCart product={product} 
-                shoppingList={props.shoppingList} setShoppingList={props.setShoppingList} key={product.id} />)}
+                <div className='shopping-cart-container'>
+                    {props.shoppingList.map((product)=><ProductInShoppingCart product={product} 
+                    shoppingList={props.shoppingList} setShoppingList={props.setShoppingList} key={product.id} />)}
+                </div>
             
                 <div className="order">
                     <p>
