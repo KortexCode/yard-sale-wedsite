@@ -29,7 +29,7 @@ function MyOrders() {
                 <div className="my-order-content">
                     {orderList.map((order)=> <PurchasedGeneralItems key={order.id} order={order}  
                     openOrderMenu={openOrderMenu} setOpenOrderMenu={setOpenOrderMenu}
-                    setOrderListId={setOrderListId} setOrderList={setOrderList} />)}
+                    setOrderListId={setOrderListId}/>)}
                 </div>
             </div>
         </div>

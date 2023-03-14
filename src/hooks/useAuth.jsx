@@ -26,9 +26,24 @@ function useAuth(){
     function userSignUp(data){
         const userList = [...userData];
         userList.push(data);
-        console.log("entré a signup");
         setUserData(userList);
         localStorage.setItem("item_V1", JSON.stringify(userList));    
+    }
+    function addOrdersToUserList(newOrder){
+        //se extrae lista de usuarios de la base de datos
+        let userListInDataBase = [...userData];
+        //Se busca el usuario actualmente logueado
+        userListInDataBase = userListInDataBase.map((user)=>{
+            if(username === user.name){
+                //Se agrega la nueva orden a la lista de ordenes del usuario logueado
+                user.ordersList.push(newOrder);
+            };
+            return user;//se retornan todos los usuarios
+        })
+        console.log(userListInDataBase); 
+        //Se actualizan los datos de usuario registrados; 
+        setUserData(userListInDataBase)
+        localStorage.setItem("item_V1", JSON.stringify(userListInDataBase));  
     }
 
     return [{
@@ -51,6 +66,7 @@ function useAuth(){
         setOpenShoppingCart,
         setShoppingList,
         setOrderList,
+        addOrdersToUserList,
         setOrderListId,
         setOpenOrderMenu,
         userSignUp,

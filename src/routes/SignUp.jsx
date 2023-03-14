@@ -27,7 +27,6 @@ function SignUp() {
             setEmpty(emptyState);
         }
         else if(validation.validName && validation.validEmail){
-            console.log("registrado")
             userSignUp(register);
             authUser(register.name);
             setEmpty(emptyState);
@@ -44,26 +43,42 @@ function SignUp() {
         //Guardando datos de registro
         setRegister({...register, ...{name: text }});
         //Validando que los datos ingresados sean o no existentes
-        data_validation(text );
+        data_validation(text, "username");
     }
     const handleTextEmail = ({target}) => { 
         const text = (target.value).toLowerCase();
         setRegister({...register, ...{email: text}});
-        data_validation(text);  
+        data_validation(text, "email");  
     }
     const handleTextPassword = ({target}) => { 
         setRegister({...register, ...{password: target.value}});
     }
     //Validar datos de registro con los datos de registros previos almacenados. 
-    const data_validation = (value) => { 
-        //El estado "validation" servirá para saber si se debe hacer el registro o no
-        const validationError = userData.some((user)=>{
-            return user.name === value || user.email === value ?  true : false;  
-        })
-        if(validationError){
-            setValidation({...validation, ...{validEmail: false}})
-        }else{
-            setValidation({...validation, ...{validEmail: true}})
+    const data_validation = (value, flag) => { 
+        //El estado "validation" servirá para saber si se debe hacer el registro o no:
+        if(flag === "username"){
+            //Validar su usuario existe
+            const validationUsername = userData.some((user)=>{
+               
+                return user.name === value;  
+            })
+            if(validationUsername){
+                setValidation({...validation, ...{validName: false}})
+            }else{
+                setValidation({...validation, ...{validName: true}})
+            }
+        }
+        else{
+            console.log("el value", value)
+            //Valida si el email existe
+            const validationEmail = userData.some((user)=>{
+                return user.email === value;  
+            })
+            if(validationEmail){
+                setValidation({...validation, ...{validEmail: false}})
+            }else{
+                setValidation({...validation, ...{validEmail: true}})
+            }
         }
     }
 

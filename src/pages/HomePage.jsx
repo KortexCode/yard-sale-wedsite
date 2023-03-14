@@ -9,6 +9,7 @@ import { ShoppingCart } from "@components/ShoppingCart";
 function HomePage(){
 
     const {
+      userData,
       username,
       productId,
       openDesktopMenu,
@@ -24,6 +25,7 @@ function HomePage(){
       setOpenShoppingCart,
       setShoppingList,
       setOrderList,
+      addOrdersToUserList,
       authUser,
     } = useOutletContext();
     
@@ -41,7 +43,9 @@ function HomePage(){
              setOpenProductDetail={setOpenProductDetail} productId={productId} />
             <ShoppingCart username={username} dataApi={dataApi} openShoppingCart={openShoppingCart}
               setOpenShoppingCart={setOpenShoppingCart} setShoppingList={setShoppingList}
-              shoppingList={shoppingList} setOrderList={setOrderList} orderList={orderList} />
+              shoppingList={shoppingList} setOrderList={setOrderList} 
+              addOrdersToUserList={addOrdersToUserList}
+              orderList={orderList} userData={userData} />
             <section className="main-container">
                 <div className="cards-container">
                   {dataApi.map((product)=> <ProductCart key={product.id} product={product}

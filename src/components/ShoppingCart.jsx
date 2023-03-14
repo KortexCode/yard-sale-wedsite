@@ -7,35 +7,31 @@ function ShoppingCart(props) {
     const navigate = useNavigate();
     let totalPrice = 0;
     let articles= 0;
-    //Se calcula el valor total de los productos en el carrito
+    //Se calcula el valor total de los productos en el carrito y su cantidad
     for (const product of props.shoppingList) {
         let price = product.price;
         articles++;
         totalPrice += price;
     }
     //EVENTOS DE CLICK
+    //Cierre de menu
     const handleCloseMenu = () => {
         props.setOpenShoppingCart((prevstate) => !prevstate);
     }
-    //Agrega las ordenes a la sección de My-Orders
+    //Agrega las ordenes a la base de datos del usuario logueado
     const handleAddtoOrders = () => {
-        if(!props.username){
+        if(!username){
             navigate("/log-in");
         }
-        else{
-            let saveOrderList = [...props.orderList]; 
-            saveOrderList.push({
-                id: Date.now().toString(16),
-                totalPrice,
-                articles,
-                shoppingList:[...props.shoppingList],
-                date: new Date().toLocaleDateString(),
-
-            })
-            props.setOrderList(saveOrderList);
-        }    
+        const newOrder = {//Objeto que contiene la información de la orden
+            id: Date.now().toString(16),
+            totalPrice,
+            articles,
+            shoppingList:[...props.shoppingList],
+            date: new Date().toLocaleDateString(),
+        }
+        props.addOrdersToUserList(newOrder);  
     }
-    console.log("lista", props.orderList)
     return (
         <aside className={`product-detail ${!props.openShoppingCart && "product-detail--disable"}`}>
             <div className="title-container">
