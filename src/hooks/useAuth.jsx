@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocationStorage } from './useLocationStorage';
 
 function useAuth(){
@@ -19,8 +19,16 @@ function useAuth(){
     const [orderList, setOrderList] = React.useState([]);
     const [orderListId, setOrderListId] = React.useState(null);
     //Autenticar usuario
-    function authUser(text){
-        setUserName(text);
+    function authUser(user_name){
+        let userListInDataBase = [...userData];
+        //Se busca el usuario actualmente logueado
+        const userlogued = userListInDataBase.find((user)=>{
+            return user_name === user.name
+           
+        });
+        console.log(userlogued.ordersList)
+        setOrderList(userlogued.ordersList);
+        setUserName(user_name);
     }
     //Registrar usuario
     function userSignUp(data){
@@ -37,6 +45,7 @@ function useAuth(){
             if(username === user.name){
                 //Se agrega la nueva orden a la lista de ordenes del usuario logueado
                 user.ordersList.push(newOrder);
+                setOrderList([...user.ordersList]);
             };
             return user;//se retornan todos los usuarios
         })
@@ -45,7 +54,7 @@ function useAuth(){
         setUserData(userListInDataBase)
         localStorage.setItem("item_V1", JSON.stringify(userListInDataBase));  
     }
-
+    console.log(orderList)
     return [{
         userData,
         username,

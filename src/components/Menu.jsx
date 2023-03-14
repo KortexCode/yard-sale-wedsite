@@ -58,7 +58,7 @@ function Menu(props){
                       <NavLink className='Menu-navLink' to="/categories/3/products">Furnitures</NavLink>
                     </li>
                     <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/categories/4/products">Toys</NavLink>
+                      <NavLink className='Menu-navLink' to="/categories/4/products">Shoes</NavLink>
                     </li>
                     <li className='Menu-li'>
                       <NavLink className='Menu-navLink' to="/categories/5/products">Others</NavLink>

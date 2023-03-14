@@ -20,7 +20,7 @@ function ShoppingCart(props) {
     }
     //Agrega las ordenes a la base de datos del usuario logueado
     const handleAddtoOrders = () => {
-        if(!username){
+        if(!props.username){
             navigate("/log-in");
         }
         const newOrder = {//Objeto que contiene la información de la orden

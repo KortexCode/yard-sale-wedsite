@@ -11,7 +11,6 @@ function MyOrders() {
         orderList,
         orderListId,
         openOrderMenu,
-        setOrderList,
         setOpenOrderMenu,
         setOrderListId,
 

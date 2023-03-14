@@ -17,7 +17,7 @@ function MyOrder({children, orderList, orderListId, setOpenOrderMenu}) {
                     <h1 className="title">My order</h1>
                 </div>
                 
-                <div class="order">
+                <div className="order">
                     <p>
                       <span>{order.date}</span>
                       <span>{`${order.articles} articles`}</span>

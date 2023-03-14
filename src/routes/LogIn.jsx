@@ -5,7 +5,7 @@ import "../styles/LogIn.scss";
 function LogIn(){
     
     const {authUser, userData} = useOutletContext()
-    const [inputData, setInputData] = React.useState({
+    const [inputData, setInputData] = React.useState({//Guarda los datos ingresados en el formulario
         name : "",
         password: "",
     });
