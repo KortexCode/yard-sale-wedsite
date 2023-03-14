@@ -20,7 +20,7 @@ function ShoppingCart(props) {
     //Agrega las ordenes a la sección de My-Orders
     const handleAddtoOrders = () => {
         if(!props.username){
-            navigate("/login");
+            navigate("/log-in");
         }
         else{
             let saveOrderList = [...props.orderList]; 
