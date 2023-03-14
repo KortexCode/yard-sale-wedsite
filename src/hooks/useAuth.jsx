@@ -20,15 +20,20 @@ function useAuth(){
     const [orderListId, setOrderListId] = React.useState(null);
     //Autenticar usuario
     function authUser(user_name){
-        let userListInDataBase = [...userData];
-        //Se busca el usuario actualmente logueado
-        const userlogued = userListInDataBase.find((user)=>{
-            return user_name === user.name
-           
-        });
-        console.log(userlogued.ordersList)
-        setOrderList(userlogued.ordersList);
-        setUserName(user_name);
+        if(!user_name){//Cuando se haga logout
+            setUserName(null);
+            return;
+        }else{
+            let userListInDataBase = [...userData];
+            //Se busca el usuario actualmente logueado
+            const userlogued = userListInDataBase.find((user)=>{
+                return user_name === user.name
+            
+            });
+            console.log(userlogued?.ordersList)
+            setOrderList(userlogued?.ordersList);
+            setUserName(user_name);
+        }    
     }
     //Registrar usuario
     function userSignUp(data){
@@ -54,7 +59,6 @@ function useAuth(){
         setUserData(userListInDataBase)
         localStorage.setItem("item_V1", JSON.stringify(userListInDataBase));  
     }
-    console.log(orderList)
     return [{
         userData,
         username,

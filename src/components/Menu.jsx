@@ -10,6 +10,7 @@ function Menu(props){
     const handleLogIn = ()=>{
       if(props.username && !props.openDesktopMenu){
         props.setOpenDesktopMenu(true);
+        props.setOpenShoppingCart(false); 
       }
       else if(props.username && props.openDesktopMenu){
         props.setOpenDesktopMenu(false);
@@ -18,17 +19,13 @@ function Menu(props){
         navigate("/log-in")
     }
     const handleOpenMobileMenu = () => {
-      if(!props.showMobileMenu){
-        props.setShowMobileMenu(true);
-      }
-      else
-        props.setShowMobileMenu(false);   
+      props.setShowMobileMenu(prevState => !prevState);
+       
     }
     const handleOpenShoppingCart = () => {
-      if(!props.openShoppingCart)
-        props.setOpenShoppingCart(true);
-      else
-        props.setOpenShoppingCart(false);;      
+      props.setOpenShoppingCart(prevState => !prevState); 
+      props.setOpenDesktopMenu(false);
+
     }
 
     return(
@@ -39,7 +36,7 @@ function Menu(props){
                 
                 <UserMobileMenu username={props.username}
                 authUser={props.authUser} setShowMobileMenu={props.setShowMobileMenu}
-                showMobileMenu={props.showMobileMenu}/>
+                showMobileMenu={props.showMobileMenu} setOpenDesktopMenu={props.setOpenDesktopMenu}/>
                  
                 <div className="navbar-left">
                   <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo"/>

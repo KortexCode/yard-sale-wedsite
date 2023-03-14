@@ -18,7 +18,7 @@ function UserDesktopMenu(props) {
                     </Link>
                 </li>
                 <li>
-                    <Link className='desktop-menu__link' to="/">My Profile</Link>
+                    <Link className='desktop-menu__link' to="/my-account">My Profile</Link>
                 </li>
                 <li>
                     <Link className='desktop-menu__link' to="/" onClick={handleLogout}>Log out</Link>

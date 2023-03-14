@@ -23,14 +23,16 @@ function ShoppingCart(props) {
         if(!props.username){
             navigate("/log-in");
         }
-        const newOrder = {//Objeto que contiene la información de la orden
-            id: Date.now().toString(16),
-            totalPrice,
-            articles,
-            shoppingList:[...props.shoppingList],
-            date: new Date().toLocaleDateString(),
+        else{
+            const newOrder = {//Objeto que contiene la información de la orden
+                id: Date.now().toString(16),
+                totalPrice,
+                articles,
+                shoppingList:[...props.shoppingList],
+                date: new Date().toLocaleDateString(),
+            }
+            props.addOrdersToUserList(newOrder);  
         }
-        props.addOrdersToUserList(newOrder);  
     }
     return (
         <aside className={`product-detail ${!props.openShoppingCart && "product-detail--disable"}`}>
