@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserDesktopMenu } from './UserDesktopMenu';
 import { UserMobileMenu  } from './UserMobileMenu';
+import menuIcon from '@icons/icon_menu.svg';
+import shoppingCartIcon from '@icons/icon_shopping_cart.svg';
+import navbarLeftLogo from '@logos/logo_yard_sale.svg';
 import "@styles/Menu.scss";
 
 function Menu(props){
@@ -31,7 +34,7 @@ function Menu(props){
     return(
         <header>
             <nav>
-                <img src="./icons/icon_menu.svg" alt="menu" className="menu"
+                <img src={menuIcon} alt="menu" className="menu"
                  onClick={handleOpenMobileMenu}/>
                 
                 <UserMobileMenu username={props.username}
@@ -39,7 +42,7 @@ function Menu(props){
                 showMobileMenu={props.showMobileMenu} setOpenDesktopMenu={props.setOpenDesktopMenu}/>
                  
                 <div className="navbar-left">
-                  <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo"/>
+                  <img src={navbarLeftLogo} alt="logo" className="nav-logo"/>
 
                   <ul className='Menu-ul'>
                     <li className='Menu-li'>
@@ -67,7 +70,7 @@ function Menu(props){
                   <ul className='Menu-desktop Menu-ul'>
                     <li className="navbar-email Menu-login" onClick={handleLogIn}>{props.username || "LogIn"}</li>
                     <li className="navbar-shopping-cart">
-                      <img src="./icons/icon_shopping_cart.svg" alt="shopping cart" 
+                      <img src={shoppingCartIcon} alt="shopping cart" 
                       onClick={handleOpenShoppingCart}/>
                       <div>{props.shoppingList.length}</div>
                     </li>

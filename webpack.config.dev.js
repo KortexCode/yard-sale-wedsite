@@ -20,7 +20,8 @@ module.exports = {
             "@routes": path.resolve(__dirname, "src/routes"),
             "@components": path.resolve(__dirname, "src/components"),
             "@styles": path.resolve(__dirname, "src/styles"),
-            "@assets": path.resolve(__dirname, "src/assets/images"),
+            "@logos": path.resolve(__dirname, "src/assets/logo"),
+            "@icons": path.resolve(__dirname, "src/assets/icons"),
         }
     },
     module: {
@@ -40,8 +41,11 @@ module.exports = {
             },
             {
                 test:/\.(css|scss)$/,
-                use: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader"], 
-                
+                use: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],  
+            },
+            {
+                test:/\.(png|svg|jpg|gif)$/,
+                type:"asset",
             }
         ]
     },

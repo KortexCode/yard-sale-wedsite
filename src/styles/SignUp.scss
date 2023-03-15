@@ -20,11 +20,11 @@
   margin-bottom: 36px;
   text-align: start;
 }
-.form {
+.Sign-up__form {
   display: flex;
   flex-direction: column;
 }
-.form div {
+.Sign-up__form div {
   display: flex;
   flex-direction: column;
 }
@@ -42,15 +42,7 @@
   margin-bottom: 22px;
 }
 .primary-button {
-  background-color: $hospital-green;
-  border-radius: 8px;
-  border: none;
-  color: $white;
-  width: 100%;
-  cursor: pointer;
-  font-size: $md;
-  font-weight: bold;
-  height: 50px;
+  @include button-primary-login;
 }
 .login-button {
   margin-top: 14px;

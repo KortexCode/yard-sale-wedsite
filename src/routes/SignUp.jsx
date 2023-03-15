@@ -22,14 +22,12 @@ function SignUp() {
     const handleCreate = () => { 
         const emptyState = register.name.length == 0 ? true : register.email.length == 0 ? true 
         : register.password.length == 0 ? true : false;
-
         if(emptyState){
             setEmpty(emptyState);
         }
         else if(validation.validName && validation.validEmail){
             userSignUp(register);
             authUser(register.name);
-            setEmpty(emptyState);
             navigate("/");
         }
         else{
@@ -44,14 +42,17 @@ function SignUp() {
         setRegister({...register, ...{name: text }});
         //Validando que los datos ingresados sean o no existentes
         data_validation(text, "username");
+        restoreMessage();
     }
     const handleTextEmail = ({target}) => { 
         const text = (target.value).toLowerCase();
         setRegister({...register, ...{email: text}});
-        data_validation(text, "email");  
+        data_validation(text, "email");
+        restoreMessage();  
     }
     const handleTextPassword = ({target}) => { 
         setRegister({...register, ...{password: target.value}});
+        restoreMessage();
     }
     //Validar datos de registro con los datos de registros previos almacenados. 
     const data_validation = (value, flag) => { 
@@ -81,6 +82,11 @@ function SignUp() {
             }
         }
     }
+    function restoreMessage(){
+        if(empty){
+            setEmpty(false);
+        }
+    }
 
     console.log("REGISTRO ACTUAL", register);
     console.log("REGISTRO STORAGE", userData);
@@ -90,7 +96,7 @@ function SignUp() {
             <div className="Sign-up__form-container">
                 <h1 className="title">My account</h1>
 
-                <form action="/" className="form">
+                <form action="/" className="Sign-up__form">
                     <div>
                         <label htmlFor="name" className="label">Name</label>
                         {!validation.validName && <p>user name already exist</p>}
@@ -110,7 +116,6 @@ function SignUp() {
                         onClick={handleCreate} />
                 </form>
             </div>
-
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import addToCartIcon from '@icons/bt_add_to_cart.svg';
 import '@styles/ProductCart.scss';
 
 function ProductCart({
@@ -34,7 +35,7 @@ function ProductCart({
                     <p>{product.title}</p>
                 </div>
                 <figure>
-                    <img src="./icons/bt_add_to_cart.svg" alt="add to cart icon"
+                    <img src={addToCartIcon} alt="add to cart icon"
                         onClick={handleAddToShoppingCart}/>
                 </figure>
             </div>
