@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import logoYardSale from '@logos/logo_yard_sale.svg';
 import "@styles/CreateNewPassword.scss";
 
 function CreateNewPassword(){
@@ -11,10 +12,10 @@ function CreateNewPassword(){
 
     return(
         <div className="form-container">
-          <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo"/>
+          <img src={logoYardSale} alt="logo" className="logo"/>
 
           <h1 className="title">Create a new password</h1>
-          <p className="subtitle">Enter a new passwrd for yue account</p>
+          <p className="subtitle">Enter a new password for you account</p>
 
           <form action="/" className="form">
             <label htmlFor="password" className="label">Password</label>

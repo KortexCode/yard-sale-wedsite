@@ -1,4 +1,5 @@
 import React from 'react';
+import arrowIcon from '@icons/flechita.svg';
 import "@styles/PurchasedGeneralItems.scss";
 
 function PurchasedGeneralItems({order, setOpenOrderMenu, setOrderListId}) {
@@ -16,7 +17,7 @@ function PurchasedGeneralItems({order, setOpenOrderMenu, setOrderListId}) {
                 <span>{`${order.articles} articles`}</span>
             </p>
             <p>{`$${order.totalPrice}`}</p>
-            <img src="./icons/flechita.svg" alt="arrow" onClick={handleOpenOrder}/>
+            <img src={arrowIcon} alt="arrow" onClick={handleOpenOrder}/>
         </div>
     )
 }

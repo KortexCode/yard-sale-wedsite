@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useOutletContext, } from 'react-router-dom';
+import logoYardSale from '@logos/logo_yard_sale.svg';
 import "../styles/LogIn.scss";
 
 function LogIn(){
@@ -60,7 +61,7 @@ function LogIn(){
 
     return(
         <div className="form-container">
-            <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo"/>
+            <img src={logoYardSale} alt="logo" className="logo"/>
             <h2 className='login-title'>Welcome to Yard Sale</h2>
             <form action="/" className="form">
                 <label htmlFor="email" className="label">Username</label>
@@ -72,7 +73,7 @@ function LogIn(){
                 {validState && <p>Invalid username or password</p>}
                 <input type="button" value="Log in" className="primary-button login-button" 
                 onClick={handleLogin}/>
-                <Link to="/login/create-new-password">Forgot my password</Link>
+                <Link to="/log-in/create-new-password">Forgot my password</Link>
             </form>
             {empty && <p>There are empty fields</p>}
             <button className="secondary-button signup-button" onClick={handleSignUp}>Sign up</button>

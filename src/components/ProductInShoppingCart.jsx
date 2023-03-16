@@ -1,4 +1,5 @@
 import React from 'react'
+import closeIcon from '@icons/icon_close.png';
 
 function ProductInShoppingCart({product, shoppingList, setShoppingList}) {
 
@@ -20,7 +21,7 @@ function ProductInShoppingCart({product, shoppingList, setShoppingList}) {
             </figure>
             <p>{product.title}</p>
             <p>${product.price}</p>
-            <img src="./icons/icon_close.png" alt="close" onClick={handleDelteProduct}/>
+            <img src={closeIcon} alt="close" onClick={handleDelteProduct} className="shopping-cart__arrow_close"/>
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
-import "@styles/MyOrders.scss";
 import { PurchasedGeneralItems } from '@components/PurchasedGeneralItems';
 import { MyOrder } from '@components/MyOrder';
 import { PurchasedItems } from '@components/PurchasedItems';
-import { useOutletContext } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
+import arrowIcon from '@icons/flechita.svg';
+import "@styles/MyOrders.scss";
 
 function MyOrders() {
 
@@ -23,7 +24,11 @@ function MyOrders() {
                 <PurchasedItems orderList={orderList} orderListId={orderListId} />
             </MyOrder>}
             <div className="my-order-container">
-                <h1 className="title">My orders</h1>
+                
+                <div className='my-order__title_container'>
+                    <Link to="/" ><img src={arrowIcon} alt="arrow"/></Link>
+                    <h1 className="title">My orders</h1>
+                </div>
 
                 <div className="my-order-content">
                     {orderList.map((order)=> <PurchasedGeneralItems key={order.id} order={order}  

@@ -58,9 +58,8 @@ function HomePage(){
 }
 
 async function productsData({params}){
-  console.log("el parámetro", params)
+  //El slug indicará en cual categoría de productos está buscando información
   const slug = params.id ? `categories/${params.id}/products` : "products";
-  console.log("el slug", slug)
   const res = await fetch(`https://api.escuelajs.co/api/v1/${slug}?offset=0&limit=10`);
   const data = await res.json();
   return data;

@@ -7,6 +7,16 @@
     justify-content: center;
     position: relative;
 }
+.my-order__title_container{
+    display: flex;
+    align-items: center;
+}
+.my-order__title_container img{
+    margin-right: 15px;
+    width: 10px;
+    transform: rotate(180deg);
+ 
+}
 .title {
     font-size: $lg;
     margin-bottom: 40px;

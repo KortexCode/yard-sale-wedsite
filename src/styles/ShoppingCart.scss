@@ -91,6 +91,9 @@
   font-size: $md;
   font-weight: bold;
 }
+.shopping-cart__arrow_close{
+  cursor: pointer;
+}
 .primary-button {
   background-color: $hospital-green;
   border-radius: 8px;

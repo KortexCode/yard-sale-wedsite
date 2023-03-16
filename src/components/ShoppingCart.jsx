@@ -1,7 +1,8 @@
 import React from 'react'
-import "@styles/ShoppingCart.scss";
 import { ProductInShoppingCart } from './ProductInShoppingCart';
 import { useNavigate } from 'react-router-dom';
+import arrowIcon from '@icons/flechita.svg';
+import "@styles/ShoppingCart.scss";
 
 function ShoppingCart(props) {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ function ShoppingCart(props) {
     return (
         <aside className={`product-detail ${!props.openShoppingCart && "product-detail--disable"}`}>
             <div className="title-container">
-                <img src="./icons/flechita.svg" alt="arrow" onClick={handleCloseMenu}/>
+                <img src={arrowIcon} alt="arrow" onClick={handleCloseMenu} className="shopping-cart__arrow_close"/>
                 <p className="title">My order</p>
             </div>
 

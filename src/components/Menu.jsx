@@ -71,7 +71,7 @@ function Menu(props){
                     <li className="navbar-email Menu-login" onClick={handleLogIn}>{props.username || "LogIn"}</li>
                     <li className="navbar-shopping-cart">
                       <img src={shoppingCartIcon} alt="shopping cart" 
-                      onClick={handleOpenShoppingCart}/>
+                      onClick={handleOpenShoppingCart} className="shopping-cart__icon"/>
                       <div>{props.shoppingList.length}</div>
                     </li>
                   </ul>
