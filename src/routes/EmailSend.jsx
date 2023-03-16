@@ -8,7 +8,7 @@ function EmailSend(){
   
     const navigate = useNavigate();
     const handleLogin = ()=>{
-      navigate("/");
+      navigate("/log-in");
     }
 
     return (
@@ -27,7 +27,7 @@ function EmailSend(){
         
               <p className="resend">
                 <span>Didn't receive the email?</span>
-                <Link to="/login">Resend</Link>
+                <Link to="">Resend</Link>
               </p>
             </div>
         </div>

@@ -25,7 +25,7 @@ function LogIn(){
             return;
         }
         //Valida que el usuario y contraseña ingredados sean de un mismo registro
-        const valid = userData.some((users)=>{
+        const valid = userData?.some((users)=>{
             if(inputData.name === users.name && inputData.password === users.password){
                 return true
             };

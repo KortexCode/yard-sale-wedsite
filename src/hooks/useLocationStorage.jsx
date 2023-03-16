@@ -10,7 +10,7 @@ function useLocationStorage(initialItem, item){
   }
 
   //Datos de usuario
-  const [userData, setUserData] = React.useState(initialItem);
+  const [userData, setUserData] = React.useState(null);
 
 /* 
   const [userSignUp, setUserSignUp] = React.useState([]);
