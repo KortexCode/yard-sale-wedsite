@@ -70,12 +70,12 @@ function LogIn(){
                 <label htmlFor="password" className="label">Password</label>
                 <input className="input input-password" type="password" id="password" 
                 placeholder="*********" onChange={handleInsertPassword} />
-                {validState && <p>Invalid username or password</p>}
+                {validState && <p className='valid-field'>Invalid username or password</p>}
                 <input type="button" value="Log in" className="primary-button login-button" 
                 onClick={handleLogin}/>
                 <Link to="/log-in/create-new-password">Forgot my password</Link>
             </form>
-            {empty && <p>There are empty fields</p>}
+            {empty && <p className='empty-field'>There are empty fields</p>}
             <button className="secondary-button signup-button" onClick={handleSignUp}>Sign up</button>
         </div>
     )

@@ -37,14 +37,15 @@ function HomePage(){
               setOpenDesktopMenu={setOpenDesktopMenu} showMobileMenu={showMobileMenu}
               setShowMobileMenu={setShowMobileMenu} authUser={authUser} 
               setOpenShoppingCart={setOpenShoppingCart} shoppingList={shoppingList}
-              openShoppingCart={openShoppingCart}>
+              openShoppingCart={openShoppingCart} setOpenProductDetail={setOpenProductDetail}>
             </Menu>
             <ProductDetail dataApi={dataApi} openProductDetail={openProductDetail}
-             setOpenProductDetail={setOpenProductDetail} productId={productId} />
+             setOpenProductDetail={setOpenProductDetail} productId={productId}
+             shoppingList={shoppingList} setShoppingList={setShoppingList}/>
             <ShoppingCart username={username} dataApi={dataApi} openShoppingCart={openShoppingCart}
               setOpenShoppingCart={setOpenShoppingCart} setShoppingList={setShoppingList}
               shoppingList={shoppingList} setOrderList={setOrderList} 
-              addOrdersToUserList={addOrdersToUserList}
+              addOrdersToUserList={addOrdersToUserList} 
               orderList={orderList} userData={userData} />
             <section className="main-container">
                 <div className="cards-container">

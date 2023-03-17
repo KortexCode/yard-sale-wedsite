@@ -99,10 +99,10 @@ function SignUp() {
                 <form action="/" className="Sign-up__form">
                     <div>
                         <label htmlFor="name" className="label">Name</label>
-                        {!validation.validName && <p>user name already exist</p>}
+                        {!validation.validName && <p className='valid-field'>user name already exist</p>}
                         <input type="text" id="name" placeholder="Teff"
                             className="input input-name" onChange={handleTextName} />
-                        {!validation.validEmail && <p>user email already exist</p>}
+                        {!validation.validEmail && <p className='valid-field'>user email already exist</p>}
                         <label htmlFor="email" className="label">Email</label>
                         <input type="text" id="email" placeholder="platzi@example.com"
                             className="input     input-email" onChange={handleTextEmail} />
@@ -111,7 +111,7 @@ function SignUp() {
                         <input type="password" id="password" placeholder="*********"
                             className="input       input-password" onChange={handleTextPassword} />
                     </div>
-                    {empty && <p>There are empty fileds...</p>}
+                    {empty && <p className='empty-field'>There are empty fileds...</p>}
                     <input type="button" value="Create" className="primary-button login-button"
                         onClick={handleCreate} />
                 </form>

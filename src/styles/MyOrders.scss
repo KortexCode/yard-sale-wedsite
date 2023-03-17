@@ -1,32 +1,49 @@
 @import "./vars";
 
-.my-order {
+.my-orders {
     width: 100%;
     height: 100vh;
     display: grid;
     justify-content: center;
     position: relative;
 }
-.my-order__title_container{
+.my-orders__title_container{
+    height: 100px;
     display: flex;
     align-items: center;
 }
-.my-order__title_container img{
-    margin-right: 15px;
-    width: 10px;
+.my-orders__link{
+    margin-right: 20px;
+}
+.my-orders__link img{
     transform: rotate(180deg);
- 
 }
-.title {
-    font-size: $lg;
-    margin-bottom: 40px;
+.my-orders__title {
+  font-size: $lg;
 }
-.my-order-container {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+.my-orders-container {
     width: 300px;
+    display: grid;
+    grid-template-rows: 100px auto auto;
 }
-.my-order-content {
+.my-orders-content {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 640px) {
+    .my-orders {
+        grid-template-columns: 1fr;
+    }
+    .my-orders-container { 
+        grid-template-columns: 1fr;
+        width: 100%;
+        justify-content: center;
+    }
+    .my-orders__title_container{
+       justify-self: center;
+    }
+    .my-orders-content {
+       width: 80%;
+       justify-self: center;
+    }
 }

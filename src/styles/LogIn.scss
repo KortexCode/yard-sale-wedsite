@@ -14,6 +14,12 @@
   text-decoration: none;
   margin-bottom: 52px;
 }
+.valid-field, .empty-field{
+  margin: 1px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
 .login-title {
   text-align: center;
 }

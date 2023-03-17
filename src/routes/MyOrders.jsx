@@ -18,19 +18,19 @@ function MyOrders() {
     } = useOutletContext();
 
     return (
-        <div className="my-order">
+        <div className="my-orders">
            {openOrderMenu && <MyOrder orderList={orderList} orderListId={orderListId}
             setOpenOrderMenu={setOpenOrderMenu}>
                 <PurchasedItems orderList={orderList} orderListId={orderListId} />
             </MyOrder>}
-            <div className="my-order-container">
+            <div className="my-orders-container">
                 
-                <div className='my-order__title_container'>
-                    <Link to="/" ><img src={arrowIcon} alt="arrow"/></Link>
-                    <h1 className="title">My orders</h1>
+                <div className='my-orders__title_container'>
+                    <Link className='my-orders__link' to="/" ><img src={arrowIcon} alt="arrow"/></Link>
+                    <h1 className="my-orders__title">My orders</h1>
                 </div>
 
-                <div className="my-order-content">
+                <div className="my-orders-content">
                     {orderList.map((order)=> <PurchasedGeneralItems key={order.id} order={order}  
                     openOrderMenu={openOrderMenu} setOpenOrderMenu={setOpenOrderMenu}
                     setOrderListId={setOrderListId}/>)}

@@ -11,7 +11,7 @@ function PurchasedGeneralItems({order, setOpenOrderMenu, setOrderListId}) {
     }
 
     return (
-        <div className="order-general">
+        <div className="orders-general">
             <p>
                 <span>{order.date}</span>
                 <span>{`${order.articles} articles`}</span>

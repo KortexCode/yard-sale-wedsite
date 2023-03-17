@@ -63,13 +63,13 @@ function CreateNewPassword(){
         <p className="subtitle">Enter a new password for you account</p>
         <form action="/" className="form" ref={form}>
           <label htmlFor="password" className="label">Email</label>
-          {validEmail && <p>This email is not registered</p>}
+          {validEmail && <p className='valid-field'>This email is not registered</p>}
           <input type="text" /* id="password" */ name='email' placeholder="insert your email"
            className="input input-password" onChange={handleInserEmail}/> 
           <label htmlFor="new-password" className="label">Password</label>
           <input type="password" /* id="new-password" */ name='newPassword' placeholder="*********" 
           className="input input-password" onChange={handleInserNewPassword}/>  
-          {empty && <p>There are empty fields</p>}
+          {empty && <p className='valid-field'>There are empty fields</p>}
           <input type="button" className="primary-button login-button" value="Confirm" onClick={handleConfirm}/>
         </form>
       </div>

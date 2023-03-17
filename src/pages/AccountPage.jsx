@@ -29,7 +29,7 @@ function AccountPage() {
                         <p className="value">{email}</p>
 
                         <label htmlFor="password" className="label">Orders</label>
-                        <p className="value">{ordersList.length} </p>
+                        <p className="value">{ordersList.length}</p>
                     </div>
                 </form>
             </div>

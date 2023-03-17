@@ -5,6 +5,7 @@ import { UserMobileMenu  } from './UserMobileMenu';
 import menuIcon from '@icons/icon_menu.svg';
 import shoppingCartIcon from '@icons/icon_shopping_cart.svg';
 import navbarLeftLogo from '@logos/logo_yard_sale.svg';
+import { LinkItem } from './LinkItem';
 import "@styles/Menu.scss";
 
 function Menu(props){
@@ -28,8 +29,31 @@ function Menu(props){
     const handleOpenShoppingCart = () => {
       props.setOpenShoppingCart(prevState => !prevState); 
       props.setOpenDesktopMenu(false);
-
+      props.setOpenProductDetail(false);
     }
+
+    const navlink = [
+      {
+        name: "Clothes",
+        to:"/categories/1/products",
+      },
+      {
+        name: "Electronics",
+        to:"/categories/2/products",
+      },
+      {
+        name: "Furnitures",
+        to:"/categories/3/products",
+      },
+      {
+        name: "shoes",
+        to:"/categories/4/products",
+      },
+      {
+        name: "Others",
+        to:"/categories/5/products",
+      },
+    ]
 
     return(
         <header>
@@ -45,24 +69,13 @@ function Menu(props){
                   <img src={navbarLeftLogo} alt="logo" className="nav-logo"/>
 
                   <ul className='Menu-ul'>
-                    <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/">All</NavLink>
+                    <li className='Menu-li menu-all'>
+                      <NavLink className={({ isActive, isPending }) => isPending ? "Menu-navLink" 
+                        : isActive ? " Menu-navLinkActived" : "Menu-navLink"} to="/">
+                        All
+                      </NavLink>
                     </li>
-                    <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/categories/1/products">Clothes</NavLink>
-                    </li>
-                    <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/categories/2/products">Electronics</NavLink>
-                    </li>
-                    <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/categories/3/products">Furnitures</NavLink>
-                    </li>
-                    <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/categories/4/products">Shoes</NavLink>
-                    </li>
-                    <li className='Menu-li'>
-                      <NavLink className='Menu-navLink' to="/categories/5/products">Others</NavLink>
-                    </li>
+                    {navlink.map((item)=> <LinkItem key={item.name} item={item}/>)}
                   </ul>
                 </div>
 

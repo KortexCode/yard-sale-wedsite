@@ -6,7 +6,6 @@
   display: grid;
   place-items: center;
 }
-
 .Sign-up__form-container {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -14,7 +13,12 @@
   height: 75vh;
 
 }
-
+.valid-field, .empty-field{
+  margin: 1px;
+  font-size: $sm;
+  color: red;
+  text-align: center;
+}
 .title {
   font-size: $lg;
   margin-bottom: 36px;
