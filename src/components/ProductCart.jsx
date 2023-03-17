@@ -2,7 +2,8 @@ import React from 'react';
 import addToCartIcon from '@icons/bt_add_to_cart.svg';
 import '@styles/ProductCart.scss';
 
-function ProductCart({
+function ProductCart(
+    {
         product, 
         setOpenProductDetail,
         openProductDetail, 
@@ -10,7 +11,8 @@ function ProductCart({
         setProductId,
         setshoppingList,
 
-    }) {
+    }
+){
     //EVENTOS DE CLICK
     //Abrir detalles del producto
     const handleOpenDetails = () => { 

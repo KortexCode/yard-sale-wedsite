@@ -72,7 +72,7 @@ function Menu(props){
                     <li className="navbar-shopping-cart">
                       <img src={shoppingCartIcon} alt="shopping cart" 
                       onClick={handleOpenShoppingCart} className="shopping-cart__icon"/>
-                      <div>{props.shoppingList.length}</div>
+                      {props.shoppingList.length == 0 ? null : <div>{props.shoppingList.length}</div>}
                     </li>
                   </ul>
                   <UserDesktopMenu authUser={props.authUser}

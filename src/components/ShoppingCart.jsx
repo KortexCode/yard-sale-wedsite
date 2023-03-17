@@ -6,13 +6,12 @@ import "@styles/ShoppingCart.scss";
 
 function ShoppingCart(props) {
     const navigate = useNavigate();
-    let totalPrice = 0;
-    let articles= 0;
     //Se calcula el valor total de los productos en el carrito y su cantidad
-    for (const product of props.shoppingList) {
-        let price = product.price;
-        articles++;
-        totalPrice += price;
+    const sumTotal = ()=>{
+        const result = props.shoppingList.reduce((accumulator, currentValue)=>{
+            return accumulator + currentValue.price;
+        }, 0);
+        return result;
     }
     //EVENTOS DE CLICK
     //Cierre de menu
@@ -27,8 +26,8 @@ function ShoppingCart(props) {
         else{
             const newOrder = {//Objeto que contiene la información de la orden
                 id: Date.now().toString(16),
-                totalPrice,
-                articles,
+                totalPrice: sumTotal(),
+                articles: props.shoppingList.length,
                 shoppingList:[...props.shoppingList],
                 date: new Date().toLocaleDateString(),
             }
@@ -52,7 +51,7 @@ function ShoppingCart(props) {
                     <p>
                         <span>Total</span>
                     </p>
-                    <p>${totalPrice}</p>
+                    <p>{sumTotal()}</p>
                 </div>
 
                 <button className="primary-button" onClick={handleAddtoOrders}>

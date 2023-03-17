@@ -13,7 +13,7 @@ function AccountPage() {
     
         });
     }
-    const {name, email} = userlogued;
+    const {name, email, ordersList} = userlogued;
 
     return (
         <div className="login">
@@ -28,11 +28,9 @@ function AccountPage() {
                         <label htmlFor="email" className="label">Email</label>
                         <p className="value">{email}</p>
 
-                        <label htmlFor="password" className="label">Password</label>
-                        <p className="value">*********</p>
+                        <label htmlFor="password" className="label">Orders</label>
+                        <p className="value">{ordersList.length} </p>
                     </div>
-
-                    <input type="submit" value="Edit" className="secondary-button login-button"/>
                 </form>
             </div>
         </div>
