@@ -14,11 +14,19 @@
 .mobile-menu .mobile-menu__categories{
   margin-top: 16px;
 }
+.mobile-menu__categories{
+  color: $black;
+  font-weight: bold;
+}
 .mobile-menu .mobile-menu__link {
   text-decoration: none;
   color: $black;
   font-weight: bold;
+  cursor: pointer;
   /* margin-bottom: 24px; */
+}
+.mobile-menu .mobile-menu__link--Actived{
+  color: $hospital-green;
 }
 .mobile-menu ul {
   padding: 0;
@@ -34,6 +42,9 @@
 .email {
   font-size: $md;
   font-weight: 600 !important;
+  color: black !important;
+}
+.email:hover {
   color: $hospital-green !important;
 }
 .sign-out {

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import '@styles/UserMobileMenu.scss';
+import { LinkItemMobile } from './LinkItemMobile';
 
 function UserMobileMenu(props) {
 
@@ -13,26 +14,15 @@ function UserMobileMenu(props) {
         <div className={`mobile-menu ${!props.showMobileMenu && "mobile-menu--disable"}`}>
             <ul className='mobile-menu__categories'>
                 <li className="mobile-menu__li">
-                    <p className="mobile-menu__link">CATEGORIES</p>
+                    <p className="mobile-menu__categories">CATEGORIES</p>
                 </li>
                 <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/">All</Link>
+                    <NavLink className={({ isActive, isPending }) => isPending ? "mobile-menu__link" 
+                    : isActive ? " mobile-menu__link--Actived" : "mobile-menu__link"} to="/">
+                        All
+                    </NavLink>
                 </li>
-                <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/categories/1/products">Clothes</Link>
-                </li>
-                <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/categories/2/products">Electronics</Link>
-                </li>
-                <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/categories/3/products">Furnitures</Link>
-                </li>
-                <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/categories/4/products">Shoes</Link>
-                </li>
-                <li className="mobile-menu__li">
-                    <Link className="mobile-menu__link" to="/categories/5/products">Other</Link>
-                </li>
+                {props.navlink.map((item)=> <LinkItemMobile key={props.navlink.name} item={item}/>)}
             </ul>
 
             <ul>

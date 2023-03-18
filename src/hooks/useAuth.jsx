@@ -3,7 +3,7 @@ import { useLocationStorage } from './useLocationStorage';
 
 function useAuth(){
 
-    const {userData, setUserData} = useLocationStorage([], "item_V1");
+    const {userData, setUserData} = useLocationStorage([], "item_V1");//Base de datos local
  
     //ESTADOS
     const [username, setUserName] = React.useState(null);
@@ -30,7 +30,6 @@ function useAuth(){
                 return user_name === user.name
             
             });
-            console.log(userlogued?.ordersList)
             setOrderList(userlogued?.ordersList);
             setUserName(user_name);
         }    
@@ -64,7 +63,6 @@ function useAuth(){
         //Se busca el usuario actualmente logueado
         userListInDataBase = userListInDataBase.map((user)=>{
           if(userEmail === user.email){
-            console.log("cambio la contraseña")
             user.password = newPassword;
           }
           return user;

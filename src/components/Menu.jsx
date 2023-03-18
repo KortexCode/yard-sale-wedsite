@@ -63,7 +63,8 @@ function Menu(props){
                 
                 <UserMobileMenu username={props.username}
                 authUser={props.authUser} setShowMobileMenu={props.setShowMobileMenu}
-                showMobileMenu={props.showMobileMenu} setOpenDesktopMenu={props.setOpenDesktopMenu}/>
+                showMobileMenu={props.showMobileMenu} setOpenDesktopMenu={props.setOpenDesktopMenu}
+                navlink={navlink} />
                  
                 <div className="navbar-left">
                   <img src={navbarLeftLogo} alt="logo" className="nav-logo"/>

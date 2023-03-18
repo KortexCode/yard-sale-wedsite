@@ -14,6 +14,13 @@ nav {
 }
 .menu {
   display: none;
+  cursor: pointer;
+  transform: scale(1.1);
+  
+}
+.menu:hover{
+  transform: scale(0.9);
+ 
 }
 .menu-all{
   padding-left: 8px;
