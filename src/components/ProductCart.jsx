@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import addToCartIcon from '@icons/bt_add_to_cart.svg';
 import imgNotFound from '@logos/imgNotFound.png';
 import '@styles/ProductCart.scss';
+import { useObserver } from '../hooks/useObserver';
 
 function ProductCart({
     product, 
@@ -12,6 +13,14 @@ function ProductCart({
     setshoppingList,
 
 }){
+    const observer = useObserver(product, imgNotFound);  
+  
+    useEffect(()=>{
+        const imgProduct = document.getElementById(product.id)
+        observer.observe(imgProduct)
+    })
+ 
+  
     //EVENTOS DE CLICK
     //Abrir detalles del producto
     const handleOpenDetails = () => { 
@@ -28,9 +37,10 @@ function ProductCart({
     console.log("img mala", product.images[0])
     return (
         <div className="product-card">
-            <img src={`${product.images[0]}`.length ? `${product.images[0]}` : imgNotFound}
+            <img id={product.id} data-src={product.images[0]} rc="" alt="" onClick={handleOpenDetails}/>
+           {/*  <img src={`${product.images[0]}`.length ? `${product.images[0]}` : imgNotFound}
              alt={`${product.title}`} 
-                onClick={handleOpenDetails}/>
+                onClick={handleOpenDetails}/> */}
             <div className="product-info">
                 <div>
                     <p>${product.price}</p>

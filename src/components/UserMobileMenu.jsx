@@ -22,7 +22,7 @@ function UserMobileMenu(props) {
                         All
                     </NavLink>
                 </li>
-                {props.navlink.map((item)=> <LinkItemMobile key={props.navlink.name} item={item}/>)}
+                {props.navlink.map((item)=> <LinkItemMobile key={item.name} item={item}/>)}
             </ul>
 
             <ul>
