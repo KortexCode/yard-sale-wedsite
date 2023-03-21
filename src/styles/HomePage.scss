@@ -7,11 +7,38 @@
 }
 .cards-container {
   padding-bottom: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
-    place-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
 }
+//Skeleton animation
+.skeleton--loading {
+  width: 240px;
+  height: 294px;
+  border-radius: 20px;
+  background-color: $hospital-green;
+  animation: loading 1s infinite;
+}
+.product-card--loading {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  background-color: $hospital-green;
+  /* animation: loading 1s infinite; */
+}
+@keyframes loading{
+  0%{
+      opacity: 100;
+  }
+  50%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 100;
+  }
+}
+//---------------------
 .product-card {
   width: 240px;
   display: grid;

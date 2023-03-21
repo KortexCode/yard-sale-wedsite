@@ -19,8 +19,6 @@ function ProductCart({
         const imgProduct = document.getElementById(product.id)
         observer.observe(imgProduct)
     })
- 
-  
     //EVENTOS DE CLICK
     //Abrir detalles del producto
     const handleOpenDetails = () => { 
@@ -34,13 +32,9 @@ function ProductCart({
         productList.push(product);
         setshoppingList(productList)
     }
-    console.log("img mala", product.images[0])
     return (
         <div className="product-card">
-            <img id={product.id} data-src={product.images[0]} rc="" alt="" onClick={handleOpenDetails}/>
-           {/*  <img src={`${product.images[0]}`.length ? `${product.images[0]}` : imgNotFound}
-             alt={`${product.title}`} 
-                onClick={handleOpenDetails}/> */}
+            <img id={product.id} src="" alt="" onClick={handleOpenDetails}/>
             <div className="product-info">
                 <div>
                     <p>${product.price}</p>

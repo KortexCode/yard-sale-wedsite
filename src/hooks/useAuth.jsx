@@ -18,6 +18,7 @@ function useAuth(){
     const [productId, setProductId] = React.useState(null);
     const [orderList, setOrderList] = React.useState([]);
     const [orderListId, setOrderListId] = React.useState(null);
+    const [loading, setLoading] = React.useState(true);
     //Autenticar usuario
     function authUser(user_name){
         if(!user_name){//Cuando se haga logout
@@ -84,6 +85,7 @@ function useAuth(){
         orderList,
         orderListId,
         openOrderMenu,
+        loading,
         authUser,
         setProductId,
         setOpenDesktopMenu,
@@ -97,6 +99,7 @@ function useAuth(){
         setOpenOrderMenu,
         userSignUp,
         changePassword,
+        setLoading,
     } ] 
     
 }

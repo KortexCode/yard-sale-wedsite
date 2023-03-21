@@ -7,7 +7,7 @@ function ProductDetail(props) {
     const handleCloseAside = () => {
         props.setOpenProductDetail(false);
     }
-    const data = props.dataApi.find((product)=>{
+    const data = props.dataApi?.find((product)=>{
         return product.id === props.productId;
     })
     //Agregar al carrito de compras
