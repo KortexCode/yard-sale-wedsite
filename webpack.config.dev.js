@@ -45,8 +45,18 @@ module.exports = {
             },
             {
                 test:/\.(png|svg|jpg|gif)$/,
-                type:"asset",
-            }
+                type:"asset/resource",
+            },
+           /*  {
+                test: /\.(png|svg|jpe?g|gif)$/, //para que utilice los .png
+                use: {
+                    loader: "file-loader", //Loader para los archivos estáticos
+                    options:{
+                        name:"assets/[hash].ext",
+                    }  
+                },
+                       
+            }, */
         ]
     },
     plugins: [
