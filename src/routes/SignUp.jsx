@@ -59,7 +59,7 @@ function SignUp() {
         //El estado "validation" servirá para saber si se debe hacer el registro o no:
         if(flag === "username"){
             //Validar su usuario existe
-            const validationUsername = userData.some((user)=>{
+            const validationUsername = userData?.some((user)=>{
                
                 return user.name === value;  
             })
@@ -70,9 +70,8 @@ function SignUp() {
             }
         }
         else{
-            console.log("el value", value)
             //Valida si el email existe
-            const validationEmail = userData.some((user)=>{
+            const validationEmail = userData?.some((user)=>{
                 return user.email === value;  
             })
             if(validationEmail){
@@ -87,9 +86,6 @@ function SignUp() {
             setEmpty(false);
         }
     }
-
-    console.log("REGISTRO ACTUAL", register);
-    console.log("REGISTRO STORAGE", userData);
 
     return (
         <div className="login">
