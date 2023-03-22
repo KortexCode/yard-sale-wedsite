@@ -98,6 +98,11 @@
 .shopping-cart__arrow_close{
   cursor: pointer;
 }
+.shopping-container__btn-checkout{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .primary-button {
   background-color: $hospital-green;
   border-radius: 8px;
@@ -111,6 +116,20 @@
 }
 .product-detail--disable{
   display: none;
+}
+.checkout-button{
+  margin-bottom: 5px;
+}
+.checkout-button--animation{
+  animation: bound 1.5s infinite;
+}
+@keyframes bound{
+  0%{
+    transform: scale(0.9);
+  }
+  100%{
+    transition: scale(1);
+  }
 }
 @media (max-width: 640px) {
   .product-detail {

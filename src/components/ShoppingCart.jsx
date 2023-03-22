@@ -6,6 +6,7 @@ import "@styles/ShoppingCart.scss";
 
 function ShoppingCart(props) {
     const navigate = useNavigate();
+    const [showMessage, setShowMessage] = React.useState(false);
     //Se calcula el valor total de los productos en el carrito y su cantidad
     const sumTotal = ()=>{
         const result = props.shoppingList.reduce((accumulator, currentValue)=>{
@@ -20,6 +21,17 @@ function ShoppingCart(props) {
     }
     //Agrega las ordenes a la base de datos del usuario logueado
     const handleAddtoOrders = () => {
+        //Animación de botón y mensaje de creación de orden
+        setShowMessage(true);
+        const btn = document.querySelector(".checkout-button");
+        btn.classList.add("checkout-button--animation");
+        setTimeout(()=>{
+            btn.classList.remove("checkout-button--animation");
+        }, 1000)
+        setTimeout(()=>{
+            setShowMessage(false);
+        }, 2000)
+        //Validar si el usuario está loguado
         if(!props.username){
             navigate("/log-in");
         }
@@ -53,10 +65,12 @@ function ShoppingCart(props) {
                     </p>
                     <p>{sumTotal()}</p>
                 </div>
-
-                <button className="primary-button" onClick={handleAddtoOrders}>
-                    Checkout
-                </button>
+                <div className='shopping-container__btn-checkout'>
+                    <button className="primary-button checkout-button" onClick={handleAddtoOrders}>
+                        Checkout
+                    </button>
+                    {showMessage && <p className='valid-field'>you have create a new order</p>}
+                </div>
             </div>
         </aside >
     )
