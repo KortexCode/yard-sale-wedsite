@@ -31,7 +31,7 @@ function MyOrders() {
                 </div>
 
                 <div className="my-orders-content">
-                    {orderList.map((order)=> <PurchasedGeneralItems key={order.id} order={order}  
+                    {orderList?.map((order)=> <PurchasedGeneralItems key={order.id} order={order}  
                     openOrderMenu={openOrderMenu} setOpenOrderMenu={setOpenOrderMenu}
                     setOrderListId={setOrderListId}/>)}
                 </div>

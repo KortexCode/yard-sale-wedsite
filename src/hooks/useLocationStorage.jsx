@@ -2,15 +2,8 @@ import React from 'react'
 
 function useLocationStorage(initialItem, item){
 
-  const initialState = {
-    username: null,
-    password: null,
-    email: null,
-    orderList: [],
-  }
-
   //Datos de usuario
-  const [userData, setUserData] = React.useState(null);
+  const [userData, setUserData] = React.useState(initialItem);
 
   //Cuando la apalicación de inicia por primera vez:
   React.useEffect(()=>{
