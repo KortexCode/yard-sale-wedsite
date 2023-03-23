@@ -3,15 +3,12 @@ import "@styles/PurchasedItems.scss";
 
 function PurchasedItems(props) {
 
-    console.log("id", props.orderListId);
     //Se busca la orden por su id
     const order = props.orderList.find((productList)=>{
         return props.orderListId === productList.id;
     })
-    console.log("purchased encontrado", order)
     //Se obtiene la lista de productos de la orden
     const productList = [...order.shoppingList];
-    console.log("productos a rende", productList)
 
    return (
         <>

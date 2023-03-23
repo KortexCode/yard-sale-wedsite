@@ -39,17 +39,13 @@ function HomePage(){
   //Este use effect genera la consulta a la Api cada vez que hayan cambios en la
   //paginación o el id de navegación.
   useEffect(()=>{
-    console.log("entro en usefe")
-    console.log("limite", limit)
-    if(id != category){
-      console.log("first", id, "catego", category);
+    if(id != category){//Al cambiar la categoría reiniciará el scroll, paginación y categoría
       setPagination({...pagination, ...{limit: 10}});
       setCategory(id);
       window.scrollTo(0, 0);
       return;
     }
-    if(limit > 50){
-      console.log("se paso de 50")
+    if(limit > 50){//Si se pasa de la página 50 no hará la consulta
       return
     }
   
@@ -59,13 +55,12 @@ function HomePage(){
       const slug = id ? `categories/${id}/products` : "products";
       const res = await fetch(`https://api.escuelajs.co/api/v1/${slug}?offset=0&limit=${limit}`);
       const loaderData = await res.json();
-      console.log(loaderData)
       if(!loaderData.length){
-        console.log("no hay consulta")
         return;
       }
-      
-      setLoading(false);
+      if(loading){
+        setLoading(false);
+      }
       setCategory(id);
       setDataApi(loaderData);
     }

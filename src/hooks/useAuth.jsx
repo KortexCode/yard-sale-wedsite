@@ -68,7 +68,6 @@ function useAuth(){
           }
           return user;
         });
-        console.log("nueva database", userListInDataBase)
         setUserData(userListInDataBase);
         localStorage.setItem("item_V1", JSON.stringify(userListInDataBase)); 
 

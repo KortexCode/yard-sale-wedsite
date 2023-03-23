@@ -15,7 +15,6 @@ function usePagination(){
             //Se extrae el máximo scroll segúnla vista actual
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             if(maxScroll === window.scrollY){
-                console.log("scroll")
                 limit+=10;
                 setPagination({...pagination, ...{limit}} )
             } 
