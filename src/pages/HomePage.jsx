@@ -31,23 +31,47 @@ function HomePage(){
     addOrdersToUserList,
     authUser,
   } = useOutletContext();
-  const [dataApi, setDataApi] = React.useState(null);//Estado donde se guardan datos de la Api
+  const [dataApi, setDataApi] = React.useState([]);//Estado donde se guardan datos de la Api
+  const [category, setCategory] = React.useState(null);
   const {id}= useParams();//Obtenemos parámetro id de las categorías
-  const pagination = usePagination();//Obtenemos datos de la paginación 
-  const {offset, limit} = {...pagination};//Elementos de la paginación
+  const {pagination, setPagination} = usePagination();//Obtenemos datos de la paginación 
+  const {limit} = {...pagination};//Elementos de la paginación
   //Este use effect genera la consulta a la Api cada vez que hayan cambios en la
   //paginación o el id de navegación.
   useEffect(()=>{
+    console.log("entro en usefe")
+    console.log("limite", limit)
+    if(id != category){
+      console.log("first", id, "catego", category);
+      setPagination({...pagination, ...{limit: 10}});
+      setCategory(id);
+      window.scrollTo(0, 0);
+      return;
+    }
+    if(limit > 50){
+      console.log("se paso de 50")
+      return
+    }
+  
     async function productsData(){
+      
       //El slug indicará en cual categoría de productos está buscando información
       const slug = id ? `categories/${id}/products` : "products";
-      const res = await fetch(`https://api.escuelajs.co/api/v1/${slug}?offset=${offset}&limit=${limit}`);
+      const res = await fetch(`https://api.escuelajs.co/api/v1/${slug}?offset=0&limit=${limit}`);
       const loaderData = await res.json();
+      console.log(loaderData)
+      if(!loaderData.length){
+        console.log("no hay consulta")
+        return;
+      }
+      
       setLoading(false);
+      setCategory(id);
       setDataApi(loaderData);
     }
     productsData();
-  }, [pagination, id]);
+      
+  }, [pagination, id]); 
 
     return(
         <>

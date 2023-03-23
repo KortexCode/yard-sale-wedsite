@@ -6,21 +6,25 @@ function usePagination(){
       offset: 0,
       limit: 10,  
     });
-    let {offset, limit} = {...pagination};
+    let {limit} = {...pagination};
     useEffect(()=>{
         window.addEventListener("scroll", infinityScroll, {passive : false});
         
         function infinityScroll(){
+           
             //Se extrae el máximo scroll segúnla vista actual
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             if(maxScroll === window.scrollY){
-                offset+=10;
+                console.log("scroll")
                 limit+=10;
-                setPagination({...pagination, ...{offset, limit}} )
+                setPagination({...pagination, ...{limit}} )
             } 
         }
-    },[]);
-    return pagination;
+        return ()=>{
+            window.removeEventListener("scroll", infinityScroll);
+        }
+    },);
+    return {pagination, setPagination}
 }
 
 export {usePagination}
