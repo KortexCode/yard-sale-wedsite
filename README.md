@@ -1,17 +1,21 @@
 # yard-sale-wedsite
+
 Website built with React which emulates an online store for the sale of products of different categorized products.
 
 ## Design
+
 The website design was provided by Platzi which can be seen at this link.
 Here [Link to design ](https://scene.zeplin.io/project/60afeeed20af1378ed046538)
 
 ## Applied Concepts
+
 - Single Page Applications(SPA)
 - React
 - React Router Dom v6
 - Api Rest
 
 ## API
+
 You can consult the site where the API was used.
 Here [Link to Platzi Fake Store API ](https://fakeapi.platzi.com/)
 
@@ -34,5 +38,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
